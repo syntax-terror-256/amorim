@@ -104,7 +104,7 @@ function showProducts(category) {
     // Mostra a seção da categoria selecionada
     const container = containers[category];
     if (container) {
-        container.style.display = 'block';
+        container.style.display = 'block'
         container.innerHTML = ''; // Limpa o conteúdo existente
 
         // Adiciona os produtos da categoria ao container
