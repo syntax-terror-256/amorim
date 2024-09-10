@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Div Dinâmica com Botão</title>
+    <style>
+        /* Oculta as divs inicialmente */
+        .productDiv {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin-top: 16px;
+            background-color: #f9f9f9;
+        }
+        .productDiv img {
+            max-width: 20%;
+            height: auto;
+        }
+        .productContainer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Produtos</h1>
+    
+    <!-- Botões para mostrar detalhes por categoria -->
+    <button id="showTortasButton">Mostrar Tortas</button>
+    <button id="showBolosButton">Mostrar Bolos</button>
+    <button id="showSalgadosButton">Mostrar Salgados</button>
+    <button id="showDocesButton">Mostrar Doces</button>
+    
+    <!-- Seções para cada categoria -->
+    <div id="tortasContainer" class="productContainer"></div>
+    <div id="bolosContainer" class="productContainer"></div>
+    <div id="salgadosContainer" class="productContainer"></div>
+    <div id="docesContainer" class="productContainer"></div>
+    
+    <script src="dynamic.js"></script>
+</body>
+</html>
