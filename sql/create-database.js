@@ -39,6 +39,28 @@ async function createDatabase() {
   `
 }
 
+// insere todos os valores da tabela CategoriasComuns
+async function fillCategoriasComuns() {
+  const categorias = [
+    'Tortas Salgadas', 'Mini Delícias', 'Doces', 
+    'Salgados Assados', 'Salgados Tradicionais', 'Salgados Especiais', 'Entradas e Petiscos'
+  ]
+
+  // inicia uma transação com o banco de dados
+  sql.begin(async (sql) => {
+    // faz uma inserção para cada valor na lista 'categorias'
+    for (const categoria of categorias) {
+      await sql`
+      INSERT INTO CategoriasComuns (nome)
+      VALUES (${categoria})
+      `
+    }
+
+    console.log('Categorias inseridas com sucesso!')
+  })
+}
+
 // executa as funções apropriadas e encerra a conexão
 await createDatabase()
+await fillCategoriasComuns()
 sql.end()
