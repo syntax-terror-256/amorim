@@ -76,3 +76,5 @@ e informações, a aplicação irá direcionar o usuário (cliente) para o App W
 * O direcionamento para o WhatsApp deve ser direto (link) sem dificuldades.  
 * O aplicativo de mensagem WhatsApp deve conter respostas pré-programadas para agilizar o processo de atendimento.
 # 10. Anexos
+
+* Vito teste
