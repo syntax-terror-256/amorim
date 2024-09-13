@@ -1,3 +1,13 @@
+**Projeto**: Plataforma de Cardápio e Atendimento para Eventos
+\
+**Versão do Documento**: 1.4
+\
+**Data**: 13 de setembro de 2024
+\
+**Autor**: Victor Manoel
+\
+**Revisor**: Hugo Messias
+
 # 1. Introdução
 * O presente projeto visa o desenvolvimento de uma aplicação web para uma pequena empresa do ramo alimentício, em especifico
 dedicada a atender demandas para festas e eventos, a aplicação tem como objetivo facilitar a apresentação de um catalogo 
@@ -146,17 +156,18 @@ e informações, a aplicação também irá direcionar o usuário (cliente) para
 * **Cliente:** acessa o site, navega pelo catálogo e escolhe um ou mais produtos de seu interesse, em seguida é direcionado ao WhatsApp para finalizar a compra.
 * **Administrador:** o administrador acessa o painel e edita, remove ou insere produtos no sistema.
 
-# 6. Diagrama de Classes
-
 # 7. Protótipos de Interface
 ![image](https://github.com/user-attachments/assets/08a88af8-37d3-434a-9fdc-f80f2f4d5dbd)
 ![image](https://github.com/user-attachments/assets/51e5a80f-2cb8-42a1-a28a-eb693976a188)
 
-# 9. Critérios de Aceitação
+# 8. Critérios de Aceitação
 * O site deve funcionar em vários dispositivos e diferentes navegadores.
 * Todos os produtos devem ser apresentados de forma correta, com informações claras.
 * O administrador deve ser capaz de gerenciar o catalogo com facilidade.
 * O direcionamento para o WhatsApp deve ser direto e sem dificuldades.  
 * O aplicativo de mensagem WhatsApp deve conter respostas pré-programadas para agilizar o processo de atendimento.
   
-# 10. Anexos
+# 9. Anexos
+[Repositório Github](https://github.com/syntax-terror-256/amorim)
+
+[Quadro Trello](https://trello.com/b/LvnQpGAB/syntax-terror)
