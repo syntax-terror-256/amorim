@@ -36,45 +36,93 @@ e informações, a aplicação também irá direcionar o usuário (cliente) para
 * O desenvolvimento utilizará HTML, CSS, JavaScript, Node.js e PostgreSQL.
 
 # 3. Requisitos Funcionais
-#### Requisito 1
+### Requisito 1
+* **Nome do Requisito:** Landing Page
+* **Descrição:** O site deverá ter uma landing page atraente e informativa que receba os visitantes e forneça uma visão geral dos principais recursos e ofertas do site.
+* **Ator(es):** Visitantes
+* **Pré-condições:** 
+  - O conteúdo e o design da landing page devem estar preparados e aprovados.
+  - O site deve estar configurado para direcionar os visitantes para a landing page ao acessarem o site pela primeira vez.
+* **Pós-condições:** 
+  - A landing page deve ser exibida corretamente para todos os visitantes.
+  - Os visitantes devem ser capazes de entender os principais recursos e ofertas do site e navegar para outras partes do site, se desejado.
+* **Critérios de Aceitação:** 
+  - A landing page deve ser visualmente atraente e refletir a identidade da marca.
+  - Deve conter informações claras e concisas sobre os principais recursos e ofertas.
+  - Deve haver botões de chamada para ação (CTA) visíveis e funcionais que direcionem os visitantes para páginas relevantes do site.
+  - A página deve ser responsiva e funcionar bem em diferentes dispositivos e tamanhos de tela.
+  - A performance da página deve ser adequada, com tempos de carregamento rápidos.
+
+### Requisito 2
+* **Nome do Requisito:** Banco de Dados
+* **Descrição:** Um banco de dados com os itens do cardápio deverá ser criado para permitir o gerenciamento e consulta de informações desses itens.
+* **Ator(es):** Usuários e Administradores
+* **Pré-condições:** 
+  - O banco de dados deve ser criado e configurado corretamente.
+  - Deve haver uma estrutura definida para armazenar os itens do cardápio.
+* **Pós-condições:** 
+  - O banco de dados deve estar acessível e funcional para gerenciamento e consulta dos itens do cardápio.
+* **Critérios de Aceitação:** 
+  - O banco de dados deve permitir a adição, modificação e remoção de itens.
+  - Deve ser possível realizar consultas rápidas e precisas sobre os itens do cardápio.
+  - O banco de dados deve garantir a integridade e segurança das informações.
+
+### Requisito 3
 * **Nome do Requisito:** Cardápio Interativo
-* **Descrição:** O site deverá permitir que o usuário visualize uma lista de produtos e preços
+* **Descrição:** O site deverá permitir que o usuário visualize uma lista de produtos e preços.
 * **Ator(es):** Clientes
-* **Pré-condições:** Situações que devem estar presentes para que o requisito seja válido
-* **Pós-condições:** Situação esperada após a execução do requisito
-* **Critérios de Aceitação:** Condições que devem ser satisfeitas para que o requisito seja considerado concluído
-
-#### Requisito 1
-* **Nome do Requisito:** Cardápio Dinâmico
-* **Descrição:** O site deverá criar dinamicamente a página do cardápio com base em resultados de consultas em banco de dados
-* **Ator(es):** Cliente
-* **Pré-condições:** Situações que devem estar presentes para que o requisito seja válido
-* **Pós-condições:** Situação esperada após a execução do requisito
-* **Critérios de Aceitação:** Condições que devem ser satisfeitas para que o requisito seja considerado concluído
-
-#### Requisito 2
-* **Nome do Requisito:** Edição de Cardápio
-* **Descrição:** O administrador deverá poder adicionar, editar e remover produtos no sistema
-* **Ator(es):** Administradores
-* **Pré-condições:** Situações que devem estar presentes para que o requisito seja válido
-* **Pós-condições:** Situação esperada após a execução do requisito
-* **Critérios de Aceitação:** Condições que devem ser satisfeitas para que o requisito seja considerado concluído
-
-#### Requisito 3
-* **Nome do Requisito:** Integração com WhatsApp
-* **Descrição:** O site deverá gerar uma mensagem com os detalhes do pedido e enviá-la à atendente via WhatsApp para finalização do pedido
-* **Ator(es):** Clientes
-* **Pré-condições:** Situações que devem estar presentes para que o requisito seja válido
-* **Pós-condições:** Situação esperada após a execução do requisito
-* **Critérios de Aceitação:** Condições que devem ser satisfeitas para que o requisito seja considerado concluído
+* **Pré-condições:** 
+  - O banco de dados deve estar atualizado com os produtos e preços.
+  - O site deve estar funcional e acessível aos clientes.
+* **Pós-condições:** 
+  - O cliente pode visualizar uma lista de produtos com os preços atualizados.
+* **Critérios de Aceitação:** 
+  - A lista de produtos deve ser exibida corretamente e de forma legível.
+  - Os preços devem estar atualizados e corresponder às informações no banco de dados.
+  - A interface deve ser intuitiva e fácil de usar.
 
 ### Requisito 4
-* **Nome do Requisito:** Banco de Dados
-* **Descrição:** Um banco de dados com os itens do cardápio deverá ser criado para permitir o gerenciamento e consulta de informações desses itens
-* **Ator(es):** Usuários e Administradores
-* **Pré-condições:** Situações que devem estar presentes para que o requisito seja válido
-* **Pós-condições:** Situação esperada após a execução do requisito
-* **Critérios de Aceitação:** Condições que devem ser satisfeitas para que o requisito seja considerado concluído
+* **Nome do Requisito:** Cardápio Dinâmico
+* **Descrição:** O site deverá criar dinamicamente a página do cardápio com base em resultados de consultas em banco de dados.
+* **Ator(es):** Clientes
+* **Pré-condições:** 
+  - O banco de dados deve conter informações atualizadas sobre o cardápio.
+  - O site deve estar configurado para conectar e consultar o banco de dados.
+* **Pós-condições:** 
+  - A página do cardápio é exibida com as informações mais recentes.
+* **Critérios de Aceitação:** 
+  - O cardápio exibido deve refletir exatamente as informações armazenadas no banco de dados.
+  - A atualização do cardápio deve ser visível para o cliente sem a necessidade de atualizar a página manualmente.
+  - O cardápio deve ser exibido sem erros e com boa performance.
+
+### Requisito 5
+* **Nome do Requisito:** Edição de Cardápio
+* **Descrição:** O administrador deverá poder adicionar, editar e remover produtos no sistema.
+* **Ator(es):** Administradores
+* **Pré-condições:** 
+  - O administrador deve estar autenticado e autorizado a fazer alterações no cardápio.
+  - A interface de administração deve estar funcional.
+* **Pós-condições:** 
+  - O cardápio deve refletir as alterações feitas pelo administrador.
+* **Critérios de Aceitação:** 
+  - O administrador deve ser capaz de adicionar, editar e remover produtos com sucesso.
+  - As alterações devem ser refletidas imediatamente no cardápio exibido para os clientes.
+  - O sistema deve validar e garantir a integridade dos dados durante as edições.
+
+### Requisito 6
+* **Nome do Requisito:** Integração com WhatsApp
+* **Descrição:** O site deverá gerar uma mensagem com os detalhes do pedido e enviá-la à atendente via WhatsApp para finalização do pedido.
+* **Ator(es):** Clientes
+* **Pré-condições:** 
+  - O cliente deve ter um pedido pronto para enviar.
+  - O sistema deve estar integrado com a API do WhatsApp ou outro serviço similar.
+* **Pós-condições:** 
+  - A mensagem com os detalhes do pedido deve ser enviada para a atendente via WhatsApp.
+* **Critérios de Aceitação:** 
+  - A mensagem deve conter todos os detalhes relevantes do pedido.
+  - A mensagem deve ser enviada sem erros e recebida pela atendente.
+  - O processo deve ser concluído de forma rápida e eficiente.
+
 
 # 4. Requisitos Não Funcionais
 ## 4.1 Desempenho
