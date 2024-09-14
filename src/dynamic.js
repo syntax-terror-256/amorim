@@ -1,4 +1,3 @@
-// Lista de produtos com categorias
 const products = [
     {
         id: "3c50447c-bb14-4558-aafc-1038029b856b",
@@ -26,7 +25,7 @@ const products = [
         id: "5f6e7d8c-9b0a-1b2c-3d4e-567890abcdef",
         nome: "Bolo de chocolate",
         descrição: "Um bolo de chocolate saboroso.",
-        imagem: "https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg?w=740&t=st=1725929426~exp=1725930026~hmac=042bd2ae7780160afb2705ada4a6a31e6c65c9dedc3439ae9ee1ad3b7a9c3146",
+        imagem: "./Imagem/Rogéria Amorim.jpeg",
         categoria: "Bolos",
         preco_unidade: 25.00,
         quantidade_minima: 10,
@@ -55,10 +54,8 @@ const products = [
         quantidade_adicionada: 60,
         antecedencia: false,
     }
-    // Adicione mais produtos conforme necessário
 ];
 
-// Função para criar uma <div> a partir do objeto
 function createDivFromProduct(data) {
     const div = document.createElement('div');
     div.className = 'productDiv';
@@ -67,22 +64,41 @@ function createDivFromProduct(data) {
     const img = document.createElement('img');
     img.src = data.imagem;
     img.alt = data.nome;
-    div.appendChild(img);
+
+    // Adiciona o container para o texto
+    const textContainer = document.createElement('div');
+    textContainer.className = 'textContainer';
 
     // Adiciona o nome
     const name = document.createElement('h2');
     name.textContent = data.nome;
-    div.appendChild(name);
+    textContainer.appendChild(name);
 
     // Adiciona a descrição
     const description = document.createElement('p');
     description.textContent = data.descrição;
-    div.appendChild(description);
+    textContainer.appendChild(description);
+
+    // Adiciona o container para preço e quantidade
+    const priceQuantityContainer = document.createElement('div');
+    priceQuantityContainer.className = 'priceQuantityContainer';
 
     // Adiciona o preço
     const price = document.createElement('p');
     price.textContent = `Preço: R$ ${data.preco_unidade.toFixed(2)}`;
-    div.appendChild(price);
+    price.className = 'price';
+    priceQuantityContainer.appendChild(price);
+
+    // Adiciona a quantidade
+    const quantity = document.createElement('p');
+    quantity.textContent = `Quantidade: ${data.quantidade_adicionada}`;
+    quantity.className = 'quantity';
+    priceQuantityContainer.appendChild(quantity);
+
+    // Adiciona imagem e texto ao container principal
+    div.appendChild(img);
+    div.appendChild(textContainer);
+    div.appendChild(priceQuantityContainer);
 
     return div;
 }
@@ -95,16 +111,16 @@ function showProducts(category) {
         "Salgados": document.getElementById('salgadosContainer'),
         "Doces": document.getElementById('docesContainer')
     };
-    
-    // Oculta todas as seções que ainda nao foram exibidas
+
+    // Oculta todas as seções que ainda não foram exibidas
     Object.values(containers).forEach(container => {
         container.style.display = 'none';
     });
-    
+
     // Mostra a seção da categoria selecionada
     const container = containers[category];
     if (container) {
-        container.style.display = 'block'
+        container.style.display = 'block';
         container.innerHTML = ''; // Limpa o conteúdo existente
 
         // Adiciona os produtos da categoria ao container
