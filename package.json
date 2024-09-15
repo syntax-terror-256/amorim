@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "node --env-file=.env --watch server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "create-database": "node --env-file=.env sql/create-database.js"
   },
   "keywords": [],
   "author": "",
