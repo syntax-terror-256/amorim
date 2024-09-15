@@ -107,154 +107,79 @@ async function fillMiniDelicias() {
 
 // inserir dados de salgado assado
 async function fillSalgadosAssados() {
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Empada de Frango', 4, 200.00, 100, 100)
-  `
+  const registros = [
+    ['Empada de Frango', imagem, info, 200.00, 100, 100],
+    ['Mini Quiches', imagem, info, 300.00, 100, 100],
+    ['Mini Esfirras', imagem, info, 300.00, 100, 100],
+    ['Cartucho de Camarão', imagem, info, 180.00, 100, 100],
+    ['Cartucho de Frango', imagem, info, 150.00, 100, 100],
+    ['Pastel Húngaro', imagem, info, 200.00, 100, 100]
+  ]
 
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Mini Quiches', 4, 300.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Mini Esfirras', 4, 300.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Cartucho de Camarão', 4, 180.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Cartucho de Frango', 4, 150.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Pastel Húngaro', 4, 200.00, 100, 100)
-  `
+  await fillCategoria(registros, 'Salgados Assados')
 }
 
 async function fillSalgadosTradicionais() {
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Coxinha de Frango', 5, 150.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Risoles de Carne', 5, 150.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Bolinho de Pizza', 5, 150.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Croquete de Camarão', 5, 150.00, 100, 100)
-  `
-
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES ('Kibe', 5, 150.00, 100, 100)
-  `
+  const registros = [
+    ['Coxinha de Frango', imagem, info, 150.00, 100, 100],
+    ['Risoles de Carne', imagem, info, 150.00, 100, 100],
+    ['Bolinho de Pizza', imagem, info, 150.00, 100, 100],
+    ['Croquete de Camarão', imagem, info, 150.00, 100, 100],
+    ['Kibe', imagem, info, 150.00, 100, 100]
+  ]
+  
+  await fillCategoria(registros, 'Salgados Tradicionais')
 }
 
 // preencher dados tortas salgadas
 async function fillTortasSalgadas() {
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima) 
-  VALUES('Empadão de Frango M', 1, 100.00, 1, 1)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima) 
-  VALUES('Empadão de Frango G', 1, 150.00, 1, 1)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima) 
-  VALUES('Empadão de Camarão', 1, 200.00, 1, 1)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima) 
-  VALUES('Quiche de carne de sol', 1, 180.00, 1, 1)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima) 
-  VALUES('Quiche de Queijo', 1, 180.00, 1, 1)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima) 
-  VALUES('Pão de Metro frango', 1, 180.00, 1, 1)
-  `
+  const registros = [
+    ['Empadão de Frango M', imagem, info, 100.00, 1, 1],
+    ['Empadão de Frango G', imagem, info, 150.00, 1, 1],
+    ['Empadão de Camarão', imagem, info, 200.00, 1, 1],
+    ['Quiche de Carne de Sol', imagem, info, 180.00, 1, 1],
+    ['Quiche de Queijo', imagem, info, 180.00, 1, 1],
+    ['Pão de Metro frango', imagem, info, 180.00, 1, 1]
+  ]
+  
+  await fillCategoria(registros, 'Tortas Salgadas')
 }
 
 //preencher dados doces Tradicionais
 async function fillDocesTradicionais(){
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Brigadeiro', 3, 180.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Beijinho', 3, 180.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Casadinho', 3, 180.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Ninho', 3, 180.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Churros', 3, 180.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Surpersa de Uva', 3, 180.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Romeu e Julieta', 3, 180.00, 100, 100)
-  `
+  const registros = [
+    ['Brigadeiro', imagem, info, 180.00, 100, 100],
+    ['Beijinho', imagem, info, 180.00, 100, 100],
+    ['Casadinho', imagem, info, 180.00, 100, 100],
+    ['Ninho', imagem, info, 180.00, 100, 100],
+    ['Churros', imagem, info, 180.00, 100, 100],
+    ['Surpresa de Uva', imagem, info, 180.00, 100, 100],
+    ['Romeu e Julieta', imagem, info, 180.00, 100, 100]
+  ]
+
+  await fillCategoria(registros, 'Doces Tradicionais')
 }
 
 //preencher dados doces especiais
 async function fillDocesEspeciais(){
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Ninho + Nutella', 3, 230.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Olho de sogra (ameixa)', 3, 230.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Ouriço (coco queimado)', 3, 230.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Ninho + Oreo', 3, 230.00, 100, 100)
-  `
+  const registros = [
+    ['Ninho + Nutella', imagem, info, 230.00, 100, 100],
+    ['Olho de sogra (ameixa)', imagem, info, 230.00, 100, 100],
+    ['Ouriço (coco queimado)', imagem, info, 230.00, 100, 100],
+    ['Ninho + Oreo', imagem, info, 230.00, 100, 100]
+  ]
+
+  await fillCategoria(registros, 'Doces Especiais')
 }
 
 //salgados especiais
-  async function fillSagadosEspeciais(){
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Camarão Empanado', 6, 300.00, 100, 100)
-  `
-  await sql`
-  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
-  VALUES('Patinha Empanada', 6, 300.00, 100, 100)
-  `
+async function fillSagadosEspeciais(){
+  const registros = [
+    ['Camarão Empanado', imagem, info, 300.00, 100, 100],
+    ['Patinha Empanada', imagem, info, 300.00, 100, 100]
+  ]
+
+  await fillCategoria(registros, 'Doces Especiais')
 }
 
 async function getCategoriasComuns() {
@@ -275,11 +200,11 @@ async function getProdutosComuns() {
 // await fillCategoriasComuns()
 // await fillDocesEspeciais()
 // await fillDocesTradicionais()
-await fillMiniDelicias()
-// await fillSagadosEspeciais()
-// await fillSalgadosAssados()
-// await fillSalgadosTradicionais()
-// await fillTortasSalgadas()
+// await fillMiniDelicias()
+await fillSagadosEspeciais()
+await fillSalgadosAssados()
+await fillSalgadosTradicionais()
+await fillTortasSalgadas()
 // console.log(await getProdutosComuns())
 // console.log(await getCategoriasComuns())
 
