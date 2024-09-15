@@ -60,6 +60,99 @@ async function fillCategoriasComuns() {
   })
 }
 
+// inserir dados de mini delícias
+async function fillMiniDelicias() {
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Burguer', 2, 6.00, 1, 20)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Hot Dog', 2, 5.00, 1, 20)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Pizza', 2, 4.00, 1, 20)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Burguer Especial', 2, 7.00, 1, 20)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Caprese', 2, 6.00, 1, 20)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Pãozinho Delícia', 2, 5.00, 1, 20)
+  `
+}
+
+// inserir dados de salgado assado
+async function fillSalgadosAssados() {
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Empada de Frango', 4, 200.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Quiches', 4, 300.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Mini Esfirras', 4, 300.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Cartucho de Camarão', 4, 180.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Cartucho de Frango', 4, 150.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Pastel Húngaro', 4, 200.00, 100, 100)
+  `
+}
+
+async function fillSalgadosTradicionais() {
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Coxinha de Frango', 5, 150.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Risoles de Carne', 5, 150.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Bolinho de Pizza', 5, 150.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Croquete de Camarão', 5, 150.00, 100, 100)
+  `
+
+  await sql`
+  INSERT INTO ProdutosComuns(nome, categoria_id, custo, base_de_calculo, quantidade_minima)
+  VALUES ('Kibe', 5, 150.00, 100, 100)
+  `
+}
+
 // preencher dados tortas salgadas
 async function fillTortasSalgadas() {
   await sql`
