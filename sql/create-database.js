@@ -1,7 +1,7 @@
 import postgres from "postgres"
 
 // usa variáveis de ambiente para pegar as informações do servidor
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env
 
 // cria um objeto para se comunicar com o banco de dados
 export const sql = postgres({
@@ -14,7 +14,7 @@ export const sql = postgres({
   connection: {
     options: `project=${ENDPOINT_ID}`,
   },
-});
+})
 
 // placeholders para inserção no banco de dados
 const imagem = "https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg"
@@ -91,9 +91,9 @@ async function fillCategoria(registros, categoria) {
   })
 }
 
-// inserir dados de mini delícias
-async function fillMiniDelicias() {
-  const registros = [
+// insere todos os valores da tabela ProdutosComuns
+async function fillProdutosComuns() {
+  const miniDelicias = [
     ['Mini Burguer', imagem, info, 6.00, 1, 20],
     ['Mini Hot Dog', imagem, info, 5.00, 1, 20],
     ['Mini Pizza', imagem, info, 4.00, 1, 20],
@@ -101,13 +101,8 @@ async function fillMiniDelicias() {
     ['Mini Caprese', imagem, info, 6.00, 1, 20],
     ['Mini Pãozinho Delícia', imagem, info, 5.00, 1, 20]
   ]
-
-  await fillCategoria(registros, 'Mini Delícias')
-}
-
-// inserir dados de salgado assado
-async function fillSalgadosAssados() {
-  const registros = [
+  
+  const salgadosAssados = [
     ['Empada de Frango', imagem, info, 200.00, 100, 100],
     ['Mini Quiches', imagem, info, 300.00, 100, 100],
     ['Mini Esfirras', imagem, info, 300.00, 100, 100],
@@ -115,12 +110,8 @@ async function fillSalgadosAssados() {
     ['Cartucho de Frango', imagem, info, 150.00, 100, 100],
     ['Pastel Húngaro', imagem, info, 200.00, 100, 100]
   ]
-
-  await fillCategoria(registros, 'Salgados Assados')
-}
-
-async function fillSalgadosTradicionais() {
-  const registros = [
+  
+  const salgadosTradicionais = [
     ['Coxinha de Frango', imagem, info, 150.00, 100, 100],
     ['Risoles de Carne', imagem, info, 150.00, 100, 100],
     ['Bolinho de Pizza', imagem, info, 150.00, 100, 100],
@@ -128,12 +119,7 @@ async function fillSalgadosTradicionais() {
     ['Kibe', imagem, info, 150.00, 100, 100]
   ]
   
-  await fillCategoria(registros, 'Salgados Tradicionais')
-}
-
-// preencher dados tortas salgadas
-async function fillTortasSalgadas() {
-  const registros = [
+  const tortasSalgadas = [
     ['Empadão de Frango M', imagem, info, 100.00, 1, 1],
     ['Empadão de Frango G', imagem, info, 150.00, 1, 1],
     ['Empadão de Camarão', imagem, info, 200.00, 1, 1],
@@ -142,12 +128,7 @@ async function fillTortasSalgadas() {
     ['Pão de Metro frango', imagem, info, 180.00, 1, 1]
   ]
   
-  await fillCategoria(registros, 'Tortas Salgadas')
-}
-
-//preencher dados doces Tradicionais
-async function fillDocesTradicionais(){
-  const registros = [
+  const docesTradicionais = [
     ['Brigadeiro', imagem, info, 180.00, 100, 100],
     ['Beijinho', imagem, info, 180.00, 100, 100],
     ['Casadinho', imagem, info, 180.00, 100, 100],
@@ -156,30 +137,27 @@ async function fillDocesTradicionais(){
     ['Surpresa de Uva', imagem, info, 180.00, 100, 100],
     ['Romeu e Julieta', imagem, info, 180.00, 100, 100]
   ]
-
-  await fillCategoria(registros, 'Doces Tradicionais')
-}
-
-//preencher dados doces especiais
-async function fillDocesEspeciais(){
-  const registros = [
+  
+  const docesEspeciais = [
     ['Ninho + Nutella', imagem, info, 230.00, 100, 100],
     ['Olho de sogra (ameixa)', imagem, info, 230.00, 100, 100],
     ['Ouriço (coco queimado)', imagem, info, 230.00, 100, 100],
     ['Ninho + Oreo', imagem, info, 230.00, 100, 100]
   ]
-
-  await fillCategoria(registros, 'Doces Especiais')
-}
-
-//salgados especiais
-async function fillSagadosEspeciais(){
-  const registros = [
+  
+  const salgadosEspeciais = [
     ['Camarão Empanado', imagem, info, 300.00, 100, 100],
     ['Patinha Empanada', imagem, info, 300.00, 100, 100]
   ]
-
-  await fillCategoria(registros, 'Doces Especiais')
+  
+  // Funções para preencher as categorias
+  await fillCategoria(miniDelicias, 'Mini Delícias')
+  await fillCategoria(salgadosAssados, 'Salgados Assados')
+  await fillCategoria(salgadosTradicionais, 'Salgados Tradicionais')
+  await fillCategoria(tortasSalgadas, 'Tortas Salgadas')
+  await fillCategoria(docesTradicionais, 'Doces Tradicionais')
+  await fillCategoria(docesEspeciais, 'Doces Especiais')
+  await fillCategoria(salgadosEspeciais, 'Salgados Especiais')
 }
 
 async function getCategoriasComuns() {
@@ -196,16 +174,11 @@ async function getProdutosComuns() {
 
 
 // executa as funções apropriadas e encerra a conexão
-// await createDatabase()
-// await fillCategoriasComuns()
-// await fillDocesEspeciais()
-// await fillDocesTradicionais()
-// await fillMiniDelicias()
-await fillSagadosEspeciais()
-await fillSalgadosAssados()
-await fillSalgadosTradicionais()
-await fillTortasSalgadas()
-// console.log(await getProdutosComuns())
-// console.log(await getCategoriasComuns())
+await createDatabase()
+await fillCategoriasComuns().then(async () => {
+  await fillProdutosComuns()
+})
+console.log(await getProdutosComuns())
+console.log(await getCategoriasComuns())
 
 sql.end()
