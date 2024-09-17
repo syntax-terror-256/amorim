@@ -3,47 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo de Div Dinâmica com Botão</title>
+    <title>Produtos</title>
     <link rel="stylesheet" href="dynamic.css">
-    <style>
-
-    </style>
 </head>
 <body>
-    <h1>Produtos</h1>
+    <button id="showTortasSalgadasButton">Mostrar Tortas Salgadas</button>
+    <button id="showMiniDeliciasButton">Mostrar Mini Delícias</button>
+    <button id="showSalgadosAssadosButton">Mostrar Salgados Assados</button>
+    <button id="showSalgadosTradicionaisButton">Mostrar Salgados Tradicionais</button>
+    <button id="showSalgadosEspeciaisButton">Mostrar Salgados Especiais</button>
+    <button id="showDocesTradicionaisButton">Mostrar Doces Tradicionais</button>
+    <button id="showDocesEspeciaisButton">Mostrar Doces Especiais</button>
 
-    <!-- Botões para mostrar detalhes por categoria -->
-    <button id="showTortasButton">Mostrar Tortas</button>
-    <button id="showBolosButton">Mostrar Bolos</button>
-    <button id="showSalgadosButton">Mostrar Salgados</button>
-    <button id="showDocesButton">Mostrar Doces</button>
+    <div id="tortasSalgadasContainer" class="productContainer"></div>
+    <div id="miniDeliciasContainer" class="productContainer"></div>
+    <div id="docesTradicionaisContainer" class="productContainer"></div>
+    <div id="docesEspeciaisContainer" class="productContainer"></div>
+    <div id="salgadosAssadosContainer" class="productContainer"></div>
+    <div id="salgadosTradicionaisContainer" class="productContainer"></div>
+    <div id="salgadosEspeciaisContainer" class="productContainer"></div>
+    
 
-    <!-- Seções para cada categoria -->
-    <div id="tortasContainer" class="productContainer"></div>
-    <div id="bolosContainer" class="productContainer"></div>
-    <div id="salgadosContainer" class="productContainer"></div>
-    <div id="docesContainer" class="productContainer"></div>
-
-    <script src="dynamic.js">
-         const input = document.getElementById('uploadImage');
-        const productDiv = document.getElementById('productDiv');
-
-        input.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                // Criar o elemento <img>
-                const img = document.createElement('img');
-                img.src = e.target.result; // Definir o caminho da imagem como o resultado do FileReader
-
-                // Adicionar a imagem ao contêiner
-                productDiv.innerHTML = ''; // Limpar o contêiner
-                productDiv.appendChild(img);
-            };
-
-            reader.readAsDataURL(file); // Ler o arquivo local e converter para base64
-        });
-    </script>
+    <script src="dynamic.js"></script>
 </body>
 </html>

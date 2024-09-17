@@ -1,101 +1,400 @@
-const products = [
+const categorias = [
+    { categoria_id: 1, nome: 'Tortas Salgadas' },
+    { categoria_id: 2, nome: 'Mini Delícias' },
+    { categoria_id: 3, nome: 'Doces Tradicionais' },
+    { categoria_id: 4, nome: 'Doces Especiais' },
+    { categoria_id: 5, nome: 'Salgados Assados' },
+    { categoria_id: 6, nome: 'Salgados Tradicionais' },
+    { categoria_id: 7, nome: 'Salgados Especiais' }
+];
+
+const produtos = [
     {
-        id: "3c50447c-bb14-4558-aafc-1038029b856b",
-        nome: "Torta de camarão",
-        descrição: "Uma torta feita de camarão.",
-        imagem: "https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg?w=740&t=st=1725929426~exp=1725930026~hmac=042bd2ae7780160afb2705ada4a6a31e6c65c9dedc3439ae9ee1ad3b7a9c3146",
-        categoria: "Tortas",
-        preco_unidade: 20.00,
-        quantidade_minima: 20,
-        quantidade_adicionada: 10,
-        antecedencia: false,
-    },
-    {
-        id: "1a2b3c4d-e5f6-7890-abcd-ef1234567890",
-        nome: "Torta de maçã",
-        descrição: "Uma torta deliciosa de maçã.",
-        imagem: "https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg?w=740&t=st=1725929426~exp=1725930026~hmac=042bd2ae7780160afb2705ada4a6a31e6c65c9dedc3439ae9ee1ad3b7a9c3146", // Substitua com uma URL direta
-        categoria: "Tortas",
-        preco_unidade: 15.00,
-        quantidade_minima: 15,
-        quantidade_adicionada: 5,
-        antecedencia: true,
-    },
-    {
-        id: "5f6e7d8c-9b0a-1b2c-3d4e-567890abcdef",
-        nome: "Bolo de chocolate",
-        descrição: "Um bolo de chocolate saboroso.",
-        imagem: "./Imagem/Rogéria Amorim.jpeg",
-        categoria: "Bolos",
-        preco_unidade: 25.00,
-        quantidade_minima: 10,
-        quantidade_adicionada: 8,
-        antecedencia: false,
-    },
-    {
-        id: "7a8b9c0d-1e2f-3g4h-5i6j-7890klmnopqrst",
-        nome: "Coxinha",
-        descrição: "Deliciosa coxinha de frango.",
-        imagem: "https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg?w=740&t=st=1725929426~exp=1725930026~hmac=042bd2ae7780160afb2705ada4a6a31e6c65c9dedc3439ae9ee1ad3b7a9c3146",
-        categoria: "Salgados",
-        preco_unidade: 5.00,
-        quantidade_minima: 50,
-        quantidade_adicionada: 30,
-        antecedencia: true,
-    },
-    {
-        id: "9b0c1d2e-3f4g-5h6i-7j8k-90lmnopqrstu",
-        nome: "Brigadeiro",
-        descrição: "Docinho de chocolate brasileiro.",
-        imagem: "https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg?w=740&t=st=1725929426~exp=1725930026~hmac=042bd2ae7780160afb2705ada4a6a31e6c65c9dedc3439ae9ee1ad3b7a9c3146",
-        categoria: "Doces",
-        preco_unidade: 2.00,
-        quantidade_minima: 100,
-        quantidade_adicionada: 60,
-        antecedencia: false,
-    }
+        produto_id: 1,
+        nome: 'Mini Burguer',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 2,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 6,
+        base_de_calculo: 1,
+        quantidade_minima: 20
+      },
+      {
+        produto_id: 2,
+        nome: 'Mini Hot Dog',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 2,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 5,
+        base_de_calculo: 1,
+        quantidade_minima: 20
+      },
+      {
+        produto_id: 3,
+        nome: 'Empada de Frango',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 5,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 200,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 4,
+        nome: 'Mini Pizza',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 2,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 4,
+        base_de_calculo: 1,
+        quantidade_minima: 20
+      },
+      {
+        produto_id: 5,
+        nome: 'Mini Quiches',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 5,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 300,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 6,
+        nome: 'Mini Burguer Especial',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 2,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 7,
+        base_de_calculo: 1,
+        quantidade_minima: 20
+      },
+      {
+        produto_id: 7,
+        nome: 'Mini Esfirras',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 5,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 300,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 8,
+        nome: 'Mini Caprese',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 2,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 6,
+        base_de_calculo: 1,
+        quantidade_minima: 20
+      },
+      {
+        produto_id: 9,
+        nome: 'Cartucho de Camarão',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 5,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 10,
+        nome: 'Mini Pãozinho Delícia',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 2,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 5,
+        base_de_calculo: 1,
+        quantidade_minima: 20
+      },
+      {
+        produto_id: 11,
+        nome: 'Cartucho de Frango',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 5,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 150,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 12,
+        nome: 'Pastel Húngaro',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 5,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 200,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 13,
+        nome: 'Coxinha de Frango',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 6,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 150,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 14,
+        nome: 'Risoles de Carne',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 6,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 150,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 15,
+        nome: 'Bolinho de Pizza',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 6,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 150,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 17,
+        nome: 'Brigadeiro',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 3,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 16,
+        nome: 'Empadão de Frango M',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 1,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 100,
+        base_de_calculo: 1,
+        quantidade_minima: 1
+      },
+      {
+        produto_id: 18,
+        nome: 'Croquete de Camarão',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 6,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 150,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 19,
+        nome: 'Empadão de Frango G',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 1,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 150,
+        base_de_calculo: 1,
+        quantidade_minima: 1
+      },
+      {
+        produto_id: 20,
+        nome: 'Beijinho',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 3,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 21,
+        nome: 'Kibe',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 6,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 150,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 22,
+        nome: 'Empadão de Camarão',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 1,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 200,
+        base_de_calculo: 1,
+        quantidade_minima: 1
+      },
+      {
+        produto_id: 23,
+        nome: 'Casadinho',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 3,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 24,
+        nome: 'Quiche de Carne de Sol',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 1,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 1,
+        quantidade_minima: 1
+      },
+      {
+        produto_id: 25,
+        nome: 'Ninho',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 3,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 26,
+        nome: 'Quiche de Queijo',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 1,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 1,
+        quantidade_minima: 1
+      },
+      {
+        produto_id: 27,
+        nome: 'Churros',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 3,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 28,
+        nome: 'Pão de Metro frango',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 1,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 1,
+        quantidade_minima: 1
+      },
+      {
+        produto_id: 29,
+        nome: 'Surpresa de Uva',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 3,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 30,
+        nome: 'Romeu e Julieta',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 3,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 180,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 31,
+        nome: 'Ninho + Nutella',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 4,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 230,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 32,
+        nome: 'Olho de sogra (ameixa)',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 4,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 230,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 34,
+        nome: 'Ouriço (coco queimado)',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 4,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 230,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+      },
+      {
+        produto_id: 33,
+        nome: 'Camarão Empanado',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 7,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 300,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      },
+      {
+        produto_id: 35,
+        nome: 'Patinha Empanada',
+        imagem: 'https://img.freepik.com/fotos-gratis/pessoa-com-transtorno-alimentar-tentando-se-alimentar-de-maneira-saudavel_23-2149243045.jpg',
+        categoria_id: 7,
+        info: 'Ingredientes principais: farinha, açúcar, manteiga e ovos.',
+        custo: 300,
+        base_de_calculo: 100,
+        quantidade_minima: 100
+      }
 ];
 
 function createDivFromProduct(data) {
     const div = document.createElement('div');
     div.className = 'productDiv';
 
-    // Adiciona a imagem
     const img = document.createElement('img');
     img.src = data.imagem;
     img.alt = data.nome;
 
-    // Adiciona o container para o texto
     const textContainer = document.createElement('div');
     textContainer.className = 'textContainer';
 
-    // Adiciona o nome
     const name = document.createElement('h2');
     name.textContent = data.nome;
     textContainer.appendChild(name);
 
-    // Adiciona a descrição
     const description = document.createElement('p');
-    description.textContent = data.descrição;
+    description.textContent = data.info;
     textContainer.appendChild(description);
 
-    // Adiciona o container para preço e quantidade
     const priceQuantityContainer = document.createElement('div');
     priceQuantityContainer.className = 'priceQuantityContainer';
 
-    // Adiciona o preço
     const price = document.createElement('p');
-    price.textContent = `Preço: R$ ${data.preco_unidade.toFixed(2)}`;
+    price.textContent = `Preço: R$ ${(data.custo).toFixed(2)}`;
     price.className = 'price';
     priceQuantityContainer.appendChild(price);
 
-    // Adiciona a quantidade
     const quantity = document.createElement('p');
-    quantity.textContent = `Quantidade: ${data.quantidade_adicionada}`;
+    quantity.textContent = `Quantidade mínima: ${data.quantidade_minima}`;
     quantity.className = 'quantity';
     priceQuantityContainer.appendChild(quantity);
 
-    // Adiciona imagem e texto ao container principal
     div.appendChild(img);
     div.appendChild(textContainer);
     div.appendChild(priceQuantityContainer);
@@ -103,38 +402,58 @@ function createDivFromProduct(data) {
     return div;
 }
 
-// Função para mostrar produtos por categoria
-function showProducts(category) {
+function showProducts(categoryId) {
     const containers = {
-        "Tortas": document.getElementById('tortasContainer'),
-        "Bolos": document.getElementById('bolosContainer'),
-        "Salgados": document.getElementById('salgadosContainer'),
-        "Doces": document.getElementById('docesContainer')
+        1: document.getElementById('tortasSalgadasContainer'),
+        2: document.getElementById('miniDeliciasContainer'),
+        3: document.getElementById('docesTradicionaisContainer'),
+        4: document.getElementById('docesEspeciaisContainer'),
+        5: document.getElementById('salgadosAssadosContainer'),
+        6: document.getElementById('salgadosTradicionaisContainer'),
+        7: document.getElementById('salgadosEspeciaisContainer')
     };
 
-    // Oculta todas as seções que ainda não foram exibidas
     Object.values(containers).forEach(container => {
-        container.style.display = 'none';
+        if (container) container.style.display = 'none';
     });
 
-    // Mostra a seção da categoria selecionada
-    const container = containers[category];
+    const container = containers[categoryId];
     if (container) {
         container.style.display = 'block';
-        container.innerHTML = ''; // Limpa o conteúdo existente
+        container.innerHTML = '';
 
-        // Adiciona os produtos da categoria ao container
-        products.filter(product => product.categoria === category).forEach(product => {
+        produtos.filter(product => product.categoria_id === categoryId).forEach(product => {
             const productDiv = createDivFromProduct(product);
             container.appendChild(productDiv);
         });
     }
 }
 
-// Configura os botões para mostrar os produtos da categoria correspondente
+
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('showTortasButton').addEventListener('click', () => showProducts('Tortas'));
-    document.getElementById('showBolosButton').addEventListener('click', () => showProducts('Bolos'));
-    document.getElementById('showSalgadosButton').addEventListener('click', () => showProducts('Salgados'));
-    document.getElementById('showDocesButton').addEventListener('click', () => showProducts('Doces'));
+    document.getElementById('showTortasSalgadasButton').addEventListener('click', () => showProducts(1));
+    document.getElementById('showMiniDeliciasButton').addEventListener('click', () => showProducts(2));
+    document.getElementById('showDocesTradicionaisButton').addEventListener('click', () => showProducts(3));
+    document.getElementById('showDocesEspeciaisButton').addEventListener('click', () => showProducts(4));
+    document.getElementById('showSalgadosAssadosButton').addEventListener('click', () => showProducts(5));
+    document.getElementById('showSalgadosTradicionaisButton').addEventListener('click', () => showProducts(6));
+    document.getElementById('showSalgadosEspeciaisButton').addEventListener('click', () => showProducts(7));
+});
+
+const input = document.getElementById('uploadImage');
+const productDiv = document.getElementById('productDiv');
+
+input.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+
+        productDiv.innerHTML = '';
+        productDiv.appendChild(img);
+    };
+
+    reader.readAsDataURL(file);
 });
