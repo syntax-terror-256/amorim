@@ -18,7 +18,7 @@ section{
 header{
     width: 100%;
     padding: 28px 8%;
- }
+}
 
 /* ESTILO DA BARRA DE NAVEGAÇÃO */ 
 #navbar{
@@ -26,7 +26,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
- }
+}
 
 #img_logo{
     max-width: 100%;
@@ -67,9 +67,8 @@ header{
 .btn-default:hover{
     background-color: #459FB580;
 }
-
 /* ESTILO DA SECTION HOME (INICIO) */
-#home{
+#home {
     display: flex;
     min-height: calc(100vh - 114px);
 }
@@ -81,12 +80,10 @@ header{
     gap: 28px;
     margin-top: 5%;
 }
-
 #cta .title{
     font-size: 4rem;
     color: #1d1d1d;
 }
-
 #cta .description{
     font-size: 1.2rem;
 }
@@ -100,7 +97,6 @@ header{
     text-decoration: none;
     color: #1d1d1d;
 }
-
 #insta_btn{
     display: flex;
     gap: 8px;
@@ -110,7 +106,6 @@ header{
     font-weight: 500;
     box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-   
 }
 
 #insta_btn .btn-default{
@@ -129,6 +124,3 @@ header{
     height: 100%;
     width: fit-content;
 }
-
-
-
