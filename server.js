@@ -15,18 +15,9 @@ const __dirname = path.dirname(__filename)
 
 // registra arquivos estáticos
 fastify.register(fastifyStatic , {
-    root: [
-        path.join(__dirname, 'src'),
-        path.join(__dirname, 'LP')
-    ], 
+    root: path.join(__dirname, 'public'),
     prefix: '',
 });
-
-
-// fastify.register(fastifyStatic , {
-//     root: path.join(__dirname, 'LP'), 
-//     prefix: '',
-// });
 
 // funções úteis
 function readFile(filePath) {
@@ -35,11 +26,11 @@ function readFile(filePath) {
 
 // cria rotas
 fastify.get('/', () => {
-    return readFile('LP/index.html')
+    return readFile('public/index.html')
 })
 
 fastify.get('/cardapio', () => {
-    return readFile('src/dynamic.html')
+    return readFile('public/dynamic.html')
 })
 
 
