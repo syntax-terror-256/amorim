@@ -63,3 +63,23 @@
 .productDiv .quantity {
     color: #555; /* Cor do texto para quantidade */
 }
+
+/* Ocultar os botões de spinner no input type number */
+.quantityInput {
+    -moz-appearance: textfield; /* Para Firefox */
+}
+
+.quantityInput::-webkit-inner-spin-button,
+.quantityInput::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Para Chrome e Safari */
+    margin: 0; /* Remove margens */
+}
+
+.quantityInput {
+    width: 50px; /* Ajuste a largura conforme necessário */
+    text-align: center; /* Centraliza o texto */
+    margin: 0 5px; /* Margem entre os botões e a entrada */
+    padding: 5px; /* Padding interno */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 4px; /* Bordas arredondadas */
+}
