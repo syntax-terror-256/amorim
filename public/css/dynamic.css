@@ -1,85 +1,58 @@
-/* Estilo para o container dos produtos */
-.productContainer {
-    margin: 20px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
-/* Estilo para o container do produto */
+.category-buttons {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.product-container {
+    display: none;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
 .productDiv {
-    border: 1px solid #ddd; /* Borda leve ao redor do retângulo */
-    border-radius: 8px; /* Bordas arredondadas */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do retângulo */
-    display: flex; /* Flexbox para alinhar a imagem e o texto lado a lado */
-    margin: 10px; /* Espaçamento ao redor do retângulo */
-    padding: 10px; /* Espaçamento interno do retângulo */
-    background-color: #fff; /* Cor de fundo branca */
-    position: relative; /* Necessário para posicionar o conteúdo no canto inferior direito */
-    max-width: 550px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 150px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;
 }
 
-/* Estilo para a imagem do produto */
+.productDiv:hover {
+    transform: scale(1.05);
+}
+
 .productDiv img {
-    max-width: 150px; /* Limita a largura máxima da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
-    border-radius: 8px; /* Bordas arredondadas na imagem */
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
-/* Estilo para o container do texto dentro do retângulo */
-.productDiv .textContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Posiciona o conteúdo no topo do container */
-    flex: 1; /* Ocupa o espaço restante ao lado da imagem */
+.textContainer h2 {
+    font-size: 1.2em;
+    margin: 5px 0;
 }
 
-/* Estilo para o nome do produto */
-.productDiv h2 {
-    font-size: 18px; /* Tamanho da fonte do nome do produto */
-    margin: 0; /* Remove margem do nome do produto */
-    padding-bottom: 5px; /* Espaçamento abaixo do nome */
-}
-
-/* Estilo para a descrição do produto */
-.productDiv p {
-    margin: 10x ; /* Margem vertical para os parágrafos */
-}
-
-/* Estilo para o preço e quantidade */
-.productDiv .price, .productDiv .quantity {
-    font-weight: bold; /* Destaca o texto de preço e quantidade */
-    margin-top: 10px; /* Espaçamento acima do texto de preço e quantidade */
-
-}
-
-/* Estilo específico para o container do preço e quantidade */
-.productDiv .priceQuantityContainer {
-    position: absolute; /* Posiciona o container em relação ao pai */
-    bottom: 10px; /* Espaçamento do fundo */
-    right: 10px; /* Espaçamento do lado direito */
-    text-align: right; /* Alinha o texto à direita */
-}
-
-/* Estilo para a quantidade */
-.productDiv .quantity {
-    color: #555; /* Cor do texto para quantidade */
-}
-
-/* Ocultar os botões de spinner no input type number */
-.quantityInput {
-    -moz-appearance: textfield; /* Para Firefox */
-}
-
-.quantityInput::-webkit-inner-spin-button,
-.quantityInput::-webkit-outer-spin-button {
-    -webkit-appearance: none; /* Para Chrome e Safari */
-    margin: 0; /* Remove margens */
-}
-
-.quantityInput {
-    width: 50px; /* Ajuste a largura conforme necessário */
-    text-align: center; /* Centraliza o texto */
-    margin: 0 5px; /* Margem entre os botões e a entrada */
-    padding: 5px; /* Padding interno */
-    border: 1px solid #ccc; /* Borda */
-    border-radius: 4px; /* Bordas arredondadas */
+.price {
+    font-weight: bold;
 }
