@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url'
 import path from 'node:path'
 import fs from "node:fs"
 import fastifyStatic from '@fastify/static'
+import { DataBase } from './database.js'
 
 
 // inicia servidor
@@ -33,6 +34,13 @@ fastify.get('/cardapio', () => {
     return readFile('public/dynamic.html')
 })
 
+fastify.get('/database/ProdutosComuns', async (request, reply) => {
+    return DataBase.getProdutosComuns()
+})
+
+fastify.get('/database/CategoriasComuns', async (request, reply) => {
+    return DataBase.getCategoriasComuns()
+})
 
 
 // especifica endereço e porta do servidor

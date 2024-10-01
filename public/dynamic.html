@@ -5,35 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cardápio de Produtos</title>
    <link rel="stylesheet" href="css/dynamic.css">
-    <style>
     
-    </style>
 </head>
 <body>
-
-    <!-- Botões de Categoria -->
-    <div class="category-buttons">
-        <button onclick="showProducts(1)">Tortas Salgadas</button>
-        <button onclick="showProducts(2)">Mini Delícias</button>
-        <button onclick="showProducts(3)">Doces Tradicionais</button>
-        <button onclick="showProducts(4)">Doces Especiais</button>
-        <button onclick="showProducts(5)">Salgados Assados</button>
-        <button onclick="showProducts(6)">Salgados Tradicionais</button>
-        <button onclick="showProducts(7)">Salgados Especiais</button>
+    <div style="display: flex;" class="category-buttons">
+        <button id="showTortasSalgadasButton">Mostrar Tortas Salgadas</button>
+        <button id="showMiniDeliciasButton">Mostrar Mini Delícias</button>
+        <button id="showSalgadosAssadosButton">Mostrar Salgados Assados</button>
+        <button id="showSalgadosTradicionaisButton">Mostrar Salgados Tradicionais</button>
+        <button id="showSalgadosEspeciaisButton">Mostrar Salgados Especiais</button>
+        <button id="showDocesTradicionaisButton">Mostrar Doces Tradicionais</button>
+        <button id="showDocesEspeciaisButton">Mostrar Doces Especiais</button>
     </div>
+    <div id="tortasSalgadasContainer" class="productContainer"></div>
+    <div id="miniDeliciasContainer" class="productContainer"></div>
+    <div id="docesTradicionaisContainer" class="productContainer"></div>
+    <div id="docesEspeciaisContainer" class="productContainer"></div>
+    <div id="salgadosAssadosContainer" class="productContainer"></div>
+    <div id="salgadosTradicionaisContainer" class="productContainer"></div>
+    <div id="salgadosEspeciaisContainer" class="productContainer"></div>
+    
 
-    <!-- Containers para Produtos -->
-    <div id="tortasSalgadasContainer" class="product-container"></div>
-    <div id="miniDeliciasContainer" class="product-container"></div>
-    <div id="docesTradicionaisContainer" class="product-container"></div>
-    <div id="docesEspeciaisContainer" class="product-container"></div>
-    <div id="salgadosAssadosContainer" class="product-container"></div>
-    <div id="salgadosTradicionaisContainer" class="product-container"></div>
-    <div id="salgadosEspeciaisContainer" class="product-container"></div>
-
-    <script>
-       
-    </script>
-<script src="js/dynamic.js"></script>
+    <script type="module" src="js/get-values.js"></script>
+    <script src="js/dynamic.js"></script>
 </body>
 </html>
