@@ -1,111 +1,103 @@
-body{
-    background-color: #FAA52E80;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f7f1e3; /* Fundo suave em tom claro */
+}
+
+.category-buttons {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 button {
+    margin: 0 5px;
+    padding: 12px 18px;
     border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FAA52E;
-    border-radius: 12px;
-    padding: 10px 14px;
-    font-weight: 600;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
-    transition: background-color .3s ease;
+    background-color: #f39c12; /* Laranja vivo */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 16px;
 }
 
-button:hover{
-    background-color: #459FB580;
+button:hover {
+    background-color: #e67e22; /* Tonalidade mais escura de laranja */
 }
 
-/* Estilo para o container dos produtos */
-.productContainer {
-    margin: 20px;
+.product-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinhamento centralizado dos produtos */
+    margin-top: 20px;
 }
 
-/* Estilo para o container do produto */
 .productDiv {
-    border: 1px solid #ddd; /* Borda leve ao redor do retângulo */
-    border-radius: 8px; /* Bordas arredondadas */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do retângulo */
-    display: flex; /* Flexbox para alinhar a imagem e o texto lado a lado */
-    margin: 10px; /* Espaçamento ao redor do retângulo */
-    padding: 10px; /* Espaçamento interno do retângulo */
-    background-color: #fff; /* Cor de fundo branca */
-    position: relative; /* Necessário para posicionar o conteúdo no canto inferior direito */
-    max-width: 550px;
-    background-color: rgb(229, 143, 23);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 180px;
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Estilo para a imagem do produto */
+.productDiv:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Efeito de elevação ao passar o mouse */
+}
+
 .productDiv img {
-    max-width: 150px; /* Limita a largura máxima da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
-    border-radius: 8px; /* Bordas arredondadas na imagem */
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
-/* Estilo para o container do texto dentro do retângulo */
-.productDiv .textContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Posiciona o conteúdo no topo do container */
-    flex: 1; /* Ocupa o espaço restante ao lado da imagem */
+.textContainer h2 {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #e67e22; /* Texto em laranja escuro */
 }
 
-/* Estilo para o nome do produto */
-.productDiv h2 {
-    font-size: 18px; /* Tamanho da fonte do nome do produto */
-    margin: 0; /* Remove margem do nome do produto */
-    padding-bottom: 5px; /* Espaçamento abaixo do nome */
+.textContainer p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #7f8c8d; /* Cinza suave */
 }
 
-/* Estilo para a descrição do produto */
-.productDiv p {
-    margin: 10x ; /* Margem vertical para os parágrafos */
-}
-
-/* Estilo para o preço e quantidade */
-.productDiv .price, .productDiv .quantity {
-    font-weight: bold; /* Destaca o texto de preço e quantidade */
-    margin-top: 10px; /* Espaçamento acima do texto de preço e quantidade */
-
-}
-
-/* Estilo específico para o container do preço e quantidade */
-.productDiv .priceQuantityContainer {
-    position: absolute; /* Posiciona o container em relação ao pai */
-    bottom: 10px; /* Espaçamento do fundo */
-    right: 10px; /* Espaçamento do lado direito */
-    text-align: right; /* Alinha o texto à direita */
-}
-
-/* Estilo para a quantidade */
-.productDiv .quantity {
-    color: #555; /* Cor do texto para quantidade */
-}
-
-/* Ocultar os botões de spinner no input type number */
-.quantityInput {
-    -moz-appearance: textfield; /* Para Firefox */
-}
-
-.quantityInput::-webkit-inner-spin-button,
-.quantityInput::-webkit-outer-spin-button {
-    -webkit-appearance: none; /* Para Chrome e Safari */
-    margin: 0; /* Remove margens */
-}
-
-.quantityInput {
-    width: 50px; /* Ajuste a largura conforme necessário */
-    text-align: center; /* Centraliza o texto */
-    margin: 0 5px; /* Margem entre os botões e a entrada */
-    padding: 5px; /* Padding interno */
-    border: 1px solid #ccc; /* Borda */
-    border-radius: 4px; /* Bordas arredondadas */
+.price {
+    font-weight: bold;
+    color: #d35400; /* Laranja profundo */
 }
 
 .quantityControl {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantityControl input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.quantityControl button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantityControl button:disabled {
+    background-color: #bdc3c7; /* Botão desativado em cinza */
+    cursor: not-allowed;
 }
