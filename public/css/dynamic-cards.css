@@ -1,0 +1,82 @@
+.productDiv {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 180px;
+    margin: 15px;
+    padding: 15px;
+
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 300px;
+    max-height: 300px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.productDiv:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Efeito de elevação ao passar o mouse */
+}
+
+.productDiv img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.textContainer h2 {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #e67e22; /* Texto em laranja escuro */
+}
+
+.textContainer p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #7f8c8d; /* Cinza suave */
+    flex: 1 1 100%;
+    white-space: normal; /* Ensure text wraps */
+    word-wrap: break-word; /* Break long words */
+}
+
+.price {
+    font-weight: bold;
+    color: #d35400; /* Laranja profundo */
+}
+
+.quantityControl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantityControl input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.quantityControl button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantityControl button:disabled {
+    background-color: #bdc3c7; /* Botão desativado em cinza */
+    cursor: not-allowed;
+}

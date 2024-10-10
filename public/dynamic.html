@@ -8,25 +8,48 @@
     
 </head>
 <body>
-    <div style="display: flex;" class="category-buttons">
-        <button id="showTortasSalgadasButton">Mostrar Tortas Salgadas</button>
-        <button id="showMiniDeliciasButton">Mostrar Mini Delícias</button>
-        <button id="showSalgadosAssadosButton">Mostrar Salgados Assados</button>
-        <button id="showSalgadosTradicionaisButton">Mostrar Salgados Tradicionais</button>
-        <button id="showSalgadosEspeciaisButton">Mostrar Salgados Especiais</button>
-        <button id="showDocesTradicionaisButton">Mostrar Doces Tradicionais</button>
-        <button id="showDocesEspeciaisButton">Mostrar Doces Especiais</button>
+    <div style="display: flex;" id="category-buttons">
+        <button id="showSalgados">Salgados</button>
+        <button id="showSalgados">Doces</button>
+        <button id="showBolos">Bolos</button>
+        <button id="showBuffet">Buffet</button>
     </div>
-    <div id="tortasSalgadasContainer" class="productContainer"></div>
-    <div id="miniDeliciasContainer" class="productContainer"></div>
-    <div id="docesTradicionaisContainer" class="productContainer"></div>
-    <div id="docesEspeciaisContainer" class="productContainer"></div>
-    <div id="salgadosAssadosContainer" class="productContainer"></div>
-    <div id="salgadosTradicionaisContainer" class="productContainer"></div>
-    <div id="salgadosEspeciaisContainer" class="productContainer"></div>
+
+    <div id="Salgados" style="display: none;">
+        <div id="TortasSalgadas">
+            <text>Tortas Salgadas: </text>
+            <div id="tortasSalgadasContainer" class="productContainer"></div>
+        </div>
+        <div id="SalgadosAssados">
+            <text>Salgados Assados: </text>
+            <div id="salgadosAssadosContainer" class="productContainer"></div>
+        </div>
+        <div id="SalgadosTradicionais">
+            <text>Salgados Tradicionais: </text>
+            <div id="salgadosTradicionaisContainer" class="productContainer"></div>
+        </div>
+        <div id="SalgadosEspeciais">
+            <text>Salgados Especiais: </text>
+            <div id="salgadosEspeciaisContainer" class="productContainer"></div>
+        </div>
+    </div>
+
+    <div id="Doces" style="display: flex; flex-direction: column; gap: 20px;">
+        <div id="MiniDelicias">
+            <text>Mini Delícias: </text>
+            <div id="miniDeliciasContainer" class="productContainer" style="display: flex; flex-wrap: nowrap; gap: 15px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;"></div>
+        </div>
+        <div id="DocesTradicionais">
+            <text>Doces Tradicionais: </text>
+            <div id="docesTradicionaisContainer" class="productContainer" style="display: flex; flex-wrap: nowrap; gap: 15px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;"></div>
+        </div>
+        <div id="DocesEspeciais">
+            <text>Doces Especiais: </text>
+            <div id="docesEspeciaisContainer" class="productContainer" style="display: flex; flex-wrap: nowrap; gap: 15px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;"></div>
+        </div>
+    </div>
     
 
-    <script type="module" src="js/get-values.js"></script>
     <script src="js/dynamic.js"></script>
 </body>
 </html>
