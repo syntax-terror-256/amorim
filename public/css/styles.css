@@ -124,3 +124,81 @@ header{
     height: 100%;
     width: fit-content;
 }
+
+/* ESTILO DA SECTION GALERIA */
+
+.section-titlle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-subtitlle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ESTILO DO CONTAINER */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 10000px;     /* largura do container */
+    height: 400px;      /* altura do container */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.description {
+    flex: 1;
+    padding-right: 20px;
+    font-size: 16px;
+    color: #333;
+}
+  
+.image-container {
+    flex: 0 0 800px;    /* Controla o tamanho da imagem */
+}
+  
+.image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+#btn-galeria{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.btn-galeria{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAA52E;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: larger;
+    font-weight: 600;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color .3s ease;
+}
+  
+  
+
+
+
+
+
+
+
+
+
