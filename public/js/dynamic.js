@@ -1,5 +1,5 @@
-var categorias
-var produtos
+var categorias;
+var produtos;
 
 async function fetchData() {
   try {
@@ -18,14 +18,14 @@ async function fetchData() {
 fetchData().then(() => {
   function createDivFromProduct(data) {
     const div = document.createElement('div');
-    div.className = 'productDiv';
+    div.className = 'product-div';
 
     const img = document.createElement('img');
     img.src = data.imagem;
     img.alt = data.nome;
 
     const textContainer = document.createElement('div');
-    textContainer.className = 'textContainer';
+    textContainer.className = 'text-container';
 
     const name = document.createElement('h2');
     name.textContent = data.nome;
@@ -40,13 +40,13 @@ fetchData().then(() => {
     price.className = 'price';
 
     const quantityControl = document.createElement('div');
-    quantityControl.className = 'quantityControl';
+    quantityControl.className = 'quantity-control';
 
     const quantityInput = document.createElement('input');
     quantityInput.type = 'number';
     quantityInput.value = 0;
     quantityInput.min = 0;
-    quantityInput.className = 'quantityInput';
+    quantityInput.className = 'quantity-input';
 
     const incrementButton = document.createElement('button');
     incrementButton.textContent = '+';
@@ -74,13 +74,13 @@ fetchData().then(() => {
 
   function showProducts(categoryId) {
     const containers = {
-        1: document.getElementById('tortasSalgadasContainer'),
-        2: document.getElementById('miniDeliciasContainer'),
-        3: document.getElementById('docesTradicionaisContainer'),
-        4: document.getElementById('docesEspeciaisContainer'),
-        5: document.getElementById('salgadosAssadosContainer'),
-        6: document.getElementById('salgadosTradicionaisContainer'),
-        7: document.getElementById('salgadosEspeciaisContainer')
+        1: document.getElementById('tortas-salgadas-container'),
+        2: document.getElementById('mini-delicias-container'),
+        3: document.getElementById('doces-tradicionais-container'),
+        4: document.getElementById('doces-especiais-container'),
+        5: document.getElementById('salgados-assados-container'),
+        6: document.getElementById('salgados-tradicionais-container'),
+        7: document.getElementById('salgados-especiais-container')
     };
 
     const container = containers[categoryId];
@@ -93,11 +93,11 @@ fetchData().then(() => {
     }
   }
 
-  showProducts(1)
-  showProducts(2)
-  showProducts(3)
-  showProducts(4)
-  showProducts(5)
-  showProducts(6)
-  showProducts(7)
-})
+  showProducts(1);
+  showProducts(2);
+  showProducts(3);
+  showProducts(4);
+  showProducts(5);
+  showProducts(6);
+  showProducts(7);
+});
