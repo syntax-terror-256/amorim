@@ -27,3 +27,18 @@ button:hover {
     background-color: #e67e22; /* Tonalidade mais escura de laranja */
 }
 
+.categoria-container {
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px;
+}
+
+.product-container {
+    display: flex; 
+    flex-wrap: nowrap; 
+    gap: 15px; 
+    overflow-x: auto; 
+    overflow-y: hidden; 
+    white-space: nowrap;
+}
+

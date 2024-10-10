@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/dynamic.css">
 </head>
 <body>
+    <!-- TODO: criar o js para esses botões -->
+    <!-- TODO: finalizar o layout da página -->
     <div style="display: flex;" id="category-buttons">
         <button id="show-salgados">Salgados</button>
         <button id="show-doces">Doces</button>
@@ -14,7 +16,7 @@
         <button id="show-buffet">Buffet</button>
     </div>
 
-    <div id="salgados" style="display: none;">
+    <div id="salgados" class="container-categoria">
         <div id="tortas-salgadas">
             <text>Tortas Salgadas: </text>
             <div id="tortas-salgadas-container" class="product-container"></div>
@@ -33,18 +35,18 @@
         </div>
     </div>
 
-    <div id="doces" style="display: flex; flex-direction: column; gap: 20px;">
+    <div id="doces" class="container-categoria" style="display: none;">
         <div id="mini-delicias">
             <text>Mini Delícias: </text>
-            <div id="mini-delicias-container" class="product-container" style="display: flex; flex-wrap: nowrap; gap: 15px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;"></div> <!-- Changed from miniDeliciasContainer to mini-delicias-container -->
+            <div id="mini-delicias-container" class="product-container"></div>
         </div>
         <div id="doces-tradicionais">
             <text>Doces Tradicionais: </text>
-            <div id="doces-tradicionais-container" class="product-container" style="display: flex; flex-wrap: nowrap; gap: 15px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;"></div> <!-- Changed from docesTradicionaisContainer to doces-tradicionais-container -->
+            <div id="doces-tradicionais-container" class="product-container"></div>
         </div>
         <div id="doces-especiais">
             <text>Doces Especiais: </text>
-            <div id="doces-especiais-container" class="product-container" style="display: flex; flex-wrap: nowrap; gap: 15px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;"></div> <!-- Changed from docesEspeciaisContainer to doces-especiais-container -->
+            <div id="doces-especiais-container" class="product-container"></div>
         </div>
     </div>
 
