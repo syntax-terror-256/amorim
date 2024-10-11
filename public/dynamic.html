@@ -4,29 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cardápio de Produtos</title>
-   <link rel="stylesheet" href="css/dynamic.css">
-    
+    <link rel="stylesheet" href="css/dynamic.css">
 </head>
 <body>
-    <div style="display: flex;" class="category-buttons">
-        <button id="showTortasSalgadasButton">Mostrar Tortas Salgadas</button>
-        <button id="showMiniDeliciasButton">Mostrar Mini Delícias</button>
-        <button id="showSalgadosAssadosButton">Mostrar Salgados Assados</button>
-        <button id="showSalgadosTradicionaisButton">Mostrar Salgados Tradicionais</button>
-        <button id="showSalgadosEspeciaisButton">Mostrar Salgados Especiais</button>
-        <button id="showDocesTradicionaisButton">Mostrar Doces Tradicionais</button>
-        <button id="showDocesEspeciaisButton">Mostrar Doces Especiais</button>
+    <!-- TODO: finalizar o layout da página -->
+    <div style="display: flex;" id="category-buttons">
+        <button id="show-salgados">Salgados</button>
+        <button id="show-doces">Doces</button>
+        <button id="show-outros">Outros</button>
+        <button id="show-bolos">Bolos</button>
+        <button id="show-buffet">Buffet</button>
     </div>
-    <div id="tortasSalgadasContainer" class="productContainer"></div>
-    <div id="miniDeliciasContainer" class="productContainer"></div>
-    <div id="docesTradicionaisContainer" class="productContainer"></div>
-    <div id="docesEspeciaisContainer" class="productContainer"></div>
-    <div id="salgadosAssadosContainer" class="productContainer"></div>
-    <div id="salgadosTradicionaisContainer" class="productContainer"></div>
-    <div id="salgadosEspeciaisContainer" class="productContainer"></div>
-    
 
-    <script type="module" src="js/get-values.js"></script>
+    <div id="salgados" class="container-categoria">
+        <div id="salgados-assados">
+            <text>Salgados Assados: </text>
+            <div id="salgados-assados-container" class="product-container"></div>
+        </div>
+        <div id="salgados-tradicionais">
+            <text>Salgados Tradicionais: </text>
+            <div id="salgados-tradicionais-container" class="product-container"></div>
+        </div>
+        <div id="salgados-especiais">
+            <text>Salgados Especiais: </text>
+            <div id="salgados-especiais-container" class="product-container"></div>
+        </div>
+    </div>
+
+    <div id="doces" class="container-categoria" style="display: none;">
+        <div id="doces-tradicionais">
+            <text>Doces Tradicionais: </text>
+            <div id="doces-tradicionais-container" class="product-container"></div>
+        </div>
+        <div id="doces-especiais">
+            <text>Doces Especiais: </text>
+            <div id="doces-especiais-container" class="product-container"></div>
+        </div>
+    </div>
+
+    <div id="outros" class="container-categoria" style="display: none;">
+        <div id="tortas-salgadas">
+            <text>Tortas Salgadas: </text>
+            <div id="tortas-salgadas-container" class="product-container"></div>
+        </div>
+        <div id="mini-delicias">
+            <text>Mini Delícias: </text>
+            <div id="mini-delicias-container" class="product-container"></div>
+        </div>
+    </div>
+
     <script src="js/dynamic.js"></script>
 </body>
 </html>
