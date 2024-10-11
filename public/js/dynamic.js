@@ -101,3 +101,41 @@ fetchData().then(() => {
   showProducts(6);
   showProducts(7);
 });
+
+
+const showSalgadosBtn = document.getElementById("show-salgados")
+const showDocesBtn = document.getElementById("show-doces")
+const showOutrosBtn = document.getElementById("show-outros")
+
+showSalgadosBtn.addEventListener('click', () => {
+  document.querySelectorAll(".container-categoria").forEach((element) => {
+    if (element.id != 'salgados') {
+      element.style.display = 'none'
+    }
+    else {
+      element.style.display = ''
+    }
+  })
+})
+
+showDocesBtn.addEventListener('click', () => {
+  document.querySelectorAll(".container-categoria").forEach((element) => {
+    if (element.id != 'doces') {
+      element.style.display = 'none'
+    }
+    else {
+      element.style.display = ''
+    }
+  })
+})
+
+showOutrosBtn.addEventListener('click', () => {
+  document.querySelectorAll(".container-categoria").forEach((element) => {
+    if (element.id != 'outros') {
+      element.style.display = 'none'
+    }
+    else {
+      element.style.display = ''
+    }
+  })
+})

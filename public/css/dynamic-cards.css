@@ -19,6 +19,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     overflow: hidden;
+    justify-content: center;
 }
 
 .product-div:hover {
@@ -36,6 +37,8 @@
     font-size: 1.1em;
     margin: 10px 0;
     color: #e67e22; /* texto em laranja escuro */
+    /* white-space: normal;  */
+    /* word-wrap: break-word;  */
 }
 
 .text-container p {
@@ -64,6 +67,7 @@
     text-align: center;
     margin: 0 10px;
     font-size: 14px;
+    -moz-appearance: textfield;
 }
 
 .quantity-control button {
@@ -74,6 +78,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
 }
 
 .quantity-control button:disabled {
