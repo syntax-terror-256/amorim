@@ -102,9 +102,9 @@ input[type="text"] {
 
 /* Estilo específico para o botão "Adicionar" */
 .adicionar {
-    background-color: #28a745;
+    background-color: #ee8e3f;
 }
 
 .adicionar:hover {
-    background-color: #218838;
+    background-color: #ee8e3f;
 }
