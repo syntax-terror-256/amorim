@@ -9,7 +9,6 @@ async function fetchData() {
     const produtosResponse = await fetch('/database/ProdutosComuns');
     produtos = await produtosResponse.json();
 
-    console.log(categorias, produtos);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -19,56 +18,97 @@ fetchData().then(() => {
   function createDivFromProduct(data) {
     const div = document.createElement('div');
     div.className = 'product-div';
-
+  
     const img = document.createElement('img');
     img.src = data.imagem;
     img.alt = data.nome;
-
+  
     const textContainer = document.createElement('div');
     textContainer.className = 'text-container';
-
+  
     const name = document.createElement('h2');
     name.textContent = data.nome;
     textContainer.appendChild(name);
-
+  
     const description = document.createElement('p');
     description.textContent = data.info;
     textContainer.appendChild(description);
-
+  
+    const priceQuantityContainer = document.createElement('div');
+    priceQuantityContainer.className = 'price-quantity-container';
+  
     const price = document.createElement('p');
     price.textContent = `Preço: R$ ${(data.custo).toFixed(2)}`;
     price.className = 'price';
-
-    const quantityControl = document.createElement('div');
-    quantityControl.className = 'quantity-control';
-
+    priceQuantityContainer.appendChild(price);
+  
+    const quantity = document.createElement('div');
+    quantity.className = 'quantity-control';
+  
+    const baseDeCalculo = data.base_de_calculo;
+    const quantidadeMinima = data.quantidade_minima;
+  
+    const decrementButton = document.createElement('button');
+    decrementButton.textContent = '-';
+    decrementButton.disabled = true;
+  
     const quantityInput = document.createElement('input');
     quantityInput.type = 'number';
     quantityInput.value = 0;
     quantityInput.min = 0;
     quantityInput.className = 'quantity-input';
-
+  
     const incrementButton = document.createElement('button');
     incrementButton.textContent = '+';
+  
+    // Lógica para controlar a quantidade
     incrementButton.addEventListener('click', () => {
-        quantityInput.value = parseInt(quantityInput.value) + 1;
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue === 0) {
+            quantityInput.value = quantidadeMinima;
+        } else {
+            quantityInput.value = currentValue + baseDeCalculo;
+        }
+        decrementButton.disabled = false; 
     });
-
-    const decrementButton = document.createElement('button');
-    decrementButton.textContent = '-';
+  
     decrementButton.addEventListener('click', () => {
-        quantityInput.value = Math.max(0, parseInt(quantityInput.value) - 1);
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > quantidadeMinima) {
+            quantityInput.value = currentValue - baseDeCalculo;
+        } else {
+            quantityInput.value = 0; // Se for igual ou menor que a quantidade mínima, vai para 0
+        }
+        decrementButton.disabled = quantityInput.value == 0;
     });
-
-    quantityControl.appendChild(decrementButton);
-    quantityControl.appendChild(quantityInput);
-    quantityControl.appendChild(incrementButton);
-
+  
+    // Validação ao perder o foco
+      quantityInput.addEventListener('blur', () => {
+        let currentValue = parseInt(quantityInput.value);
+    
+        // Ajusta para múltiplos de baseDeCalculo
+        if (currentValue % baseDeCalculo !== 0) {
+            currentValue = Math.floor(currentValue / baseDeCalculo) * baseDeCalculo;
+        }
+    
+        // Garante que o valor não seja menor que a quantidade mínima
+        if (currentValue < quantidadeMinima) {
+            currentValue = quantidadeMinima; // Define para a quantidade mínima
+        }
+    
+        quantityInput.value = currentValue;
+        decrementButton.disabled = quantityInput.value == 0;
+    });
+  
+    quantity.appendChild(decrementButton);
+    quantity.appendChild(quantityInput);
+    quantity.appendChild(incrementButton);
+    priceQuantityContainer.appendChild(quantity);
+  
     div.appendChild(img);
     div.appendChild(textContainer);
-    div.appendChild(price);
-    div.appendChild(quantityControl);
-
+    div.appendChild(priceQuantityContainer);
+  
     return div;
   }
 
