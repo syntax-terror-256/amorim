@@ -1,7 +1,7 @@
 /* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #FAA52E80;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,8 +16,9 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 60%;
-    border: 1px solid #ddd;
-    background-color: #fff;
+    border: 1px solid #FAA52E;
+    background-color: #e0e0e0
+    ;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,16 +74,18 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    gap: 10px; /* Espaçamento entre os elementos */
 }
 
 button {
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: #f79d1f;
     color: white;
     border: none;
     border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
 button:hover {
@@ -93,7 +96,15 @@ input[type="text"] {
     width: 50px;
     text-align: center;
     font-size: 16px;
-    margin: 0 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+/* Estilo específico para o botão "Adicionar" */
+.adicionar {
+    background-color: #28a745;
+}
+
+.adicionar:hover {
+    background-color: #218838;
 }
