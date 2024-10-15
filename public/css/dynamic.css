@@ -7,15 +7,6 @@ body {
     background-color: #fcd197; /* Fundo suave em tom claro */
 }
 
-.content {
-    padding-top: min(16vh, 150px);
-}
-
-/* .category-buttons {
-    margin-bottom: 20px;
-    text-align: center;
-} */
-
 button {
     margin: 0 5px;
     padding: 12px 18px;
