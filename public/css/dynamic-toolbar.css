@@ -1,0 +1,45 @@
+.toolbar {
+    width: 100%;
+    height: min(13.55vh, 150px);
+    align-items: center;
+
+    background-color: #f39c12;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #f39c12;;
+    position: fixed;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar button {
+    margin-right: 5px;
+    padding: 10px;
+    background-color: #f39c12;
+    border: none;
+    cursor: pointer;
+    font-size: min(16px, 3vw);
+}
+
+.toolbar-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 2vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+
+    max-width: min(80vw, 800px);
+    min-width: min(80vw, 800px);
+}
+
+.toolbar-top #logo {
+    max-width: 60vw;
+}
+
+.toolbar-top #cart {
+    max-width: min(8vw, 40px);
+}
+

@@ -8,48 +8,58 @@
 </head>
 <body>
     <!-- TODO: finalizar o layout da página -->
-    <div style="display: flex;" id="category-buttons">
-        <button id="show-salgados">Salgados</button>
-        <button id="show-doces">Doces</button>
-        <button id="show-outros">Outros</button>
-        <button id="show-bolos">Bolos</button>
-        <button id="show-buffet">Buffet</button>
-    </div>
-
-    <div id="salgados" class="container-categoria">
-        <div id="salgados-assados">
-            <text>Salgados Assados: </text>
-            <div id="salgados-assados-container" class="product-container"></div>
+    <div class="toolbar">
+        <div class="toolbar-top">
+            <a href="/">
+                <img src="images/Frame 1.png" id="logo">
+            </a>
+            <img src="images/shopping-cart-icon.svg" id="cart">
         </div>
-        <div id="salgados-tradicionais">
-            <text>Salgados Tradicionais: </text>
-            <div id="salgados-tradicionais-container" class="product-container"></div>
-        </div>
-        <div id="salgados-especiais">
-            <text>Salgados Especiais: </text>
-            <div id="salgados-especiais-container" class="product-container"></div>
+        <div class="toolbar-bottom">
+            <button id="show-salgados">Salgados</button>
+            <button id="show-doces">Doces</button>
+            <button id="show-outros">Outros</button>
+            <button id="show-bolos">Bolos</button>
+            <button id="show-buffet">Buffet</button>
         </div>
     </div>
 
-    <div id="doces" class="container-categoria" style="display: none;">
-        <div id="doces-tradicionais">
-            <text>Doces Tradicionais: </text>
-            <div id="doces-tradicionais-container" class="product-container"></div>
+    <div class="content">
+        <div id="salgados" class="container-categoria">
+            <div id="salgados-assados">
+                <text>Salgados Assados: </text>
+                <div id="salgados-assados-container" class="product-container"></div>
+            </div>
+            <div id="salgados-tradicionais">
+                <text>Salgados Tradicionais: </text>
+                <div id="salgados-tradicionais-container" class="product-container"></div>
+            </div>
+            <div id="salgados-especiais">
+                <text>Salgados Especiais: </text>
+                <div id="salgados-especiais-container" class="product-container"></div>
+            </div>
         </div>
-        <div id="doces-especiais">
-            <text>Doces Especiais: </text>
-            <div id="doces-especiais-container" class="product-container"></div>
-        </div>
-    </div>
 
-    <div id="outros" class="container-categoria" style="display: none;">
-        <div id="tortas-salgadas">
-            <text>Tortas Salgadas: </text>
-            <div id="tortas-salgadas-container" class="product-container"></div>
+        <div id="doces" class="container-categoria" style="display: none;">
+            <div id="doces-tradicionais">
+                <text>Doces Tradicionais: </text>
+                <div id="doces-tradicionais-container" class="product-container"></div>
+            </div>
+            <div id="doces-especiais">
+                <text>Doces Especiais: </text>
+                <div id="doces-especiais-container" class="product-container"></div>
+            </div>
         </div>
-        <div id="mini-delicias">
-            <text>Mini Delícias: </text>
-            <div id="mini-delicias-container" class="product-container"></div>
+
+        <div id="outros" class="container-categoria" style="display: none;">
+            <div id="tortas-salgadas">
+                <text>Tortas Salgadas: </text>
+                <div id="tortas-salgadas-container" class="product-container"></div>
+            </div>
+            <div id="mini-delicias">
+                <text>Mini Delícias: </text>
+                <div id="mini-delicias-container" class="product-container"></div>
+            </div>
         </div>
     </div>
 
