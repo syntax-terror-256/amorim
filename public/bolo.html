@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Bolo</title>
+    <link rel="stylesheet" href="css/bolo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="info">
+            <h1>Bolo Personalizado</h1>
+            <p>Escolha o sabor e o peso do seu bolo, feito com ingredientes frescos e de alta qualidade.</p>
+        </div>
+        <div class="imagem">
+            <img id="imagem-bolo" src="https://www.estadao.com.br/resizer/oFDrDp3xgfze9zuyNaR5gnyURVA=/arc-anglerfish-arc2-prod-estadao/public/FIVYQFU6J5ND3PYRA6XQHR4NW4.jpg" alt="Imagem do Bolo">
+        </div>
+    </div>
+    <div class="opcoes">
+        <div class="seletor-sabor">
+            <label for="sabor">Selecione o sabor do bolo:</label>
+            <select id="sabor">
+                <option value="chocolate">Chocolate</option>
+                <option value="baunilha">Baunilha</option>
+                <option value="morango">Morango</option>
+                <option value="limão">Limão</option>
+                <option value="coco">Coco</option>
+            </select>
+        </div>
+        <div class="seletor-peso">
+            <label>Peso do bolo (kg):</label>
+            <div class="contador">
+                <button id="decrementar">-</button>
+                <input type="text" id="peso" value="0.5" readonly>
+                <button id="incrementar">+</button>
+                <button id="adicionar" class="adicionar">Adicionar</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/bolo.js"></script>
+</body>
+</html>
