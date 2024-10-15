@@ -1,6 +1,5 @@
 .toolbar {
     width: 100%;
-    height: min(13.55vh, 150px);
     align-items: center;
 
     background-color: #f39c12;
