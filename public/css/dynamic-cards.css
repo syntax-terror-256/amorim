@@ -1,25 +1,30 @@
+:root {
+    --card-w: max(10vw, 120px);
+    --card-h: calc(1.7 * var(--card-w));
+    --normal-font-size: calc(var(--card-w)/12);
+    --big-font-size: calc(var(--normal-font-size)*1.4);
+    --buttons-dimensions: calc(var(--card-w)/6)
+}
+
 .product-div {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    width: 180px;
     margin: 15px;
     padding: 15px;
 
-    text-align: center;
+    flex: 0 0 var(--card-w);
+    height: var(--card-h);
+
     background-color: #ececec;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
     transition: transform 0.3s, box-shadow 0.3s;
-
-    min-width: 180px;
-    max-width: 180px;
-    min-height: 300px;
-    max-height: 300px;
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     overflow: hidden;
-    justify-content: center;
+
+    justify-content: space-around;
 }
 
 .product-div:hover {
@@ -34,16 +39,16 @@
 }
 
 .text-container h2 {
-    font-size: 1.1em;
-    margin: 10px 0;
+    font-size: var(--big-font-size);
+    margin: 2% 0;
     color: #e67e22; /* texto em laranja escuro */
-    /* white-space: normal;  */
-    /* word-wrap: break-word;  */
+    white-space: normal; 
+    word-wrap: break-word; 
 }
 
 .text-container p {
-    margin: 5px 0;
-    font-size: 14px;
+    margin: 2% 0;
+    font-size: var(--normal-font-size);
     color: #7f8c8d; /* cinza suave */
     flex: 1 1 100%;
     white-space: normal; /* ensure text wraps */
@@ -51,6 +56,7 @@
 }
 
 .price {
+    font-size: var(--normal-font-size);
     font-weight: bold;
     color: #d35400; /* laranja profundo */
 }
@@ -59,30 +65,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 2%;
 }
 
 .quantity-control input {
-    width: 50px;
+    width: calc(var(--card-w)/3);
+    height: calc(var(--buttons-dimensions)/1.2);
     text-align: center;
-    margin: 0 10px;
-    font-size: 14px;
+    margin: 0 2%;
+    font-size: var(--normal-font-size);
     -moz-appearance: textfield;
 }
 
 .quantity-control button {
-    padding: 5px 10px;
-    font-size: 16px;
+    padding: 2% 4%;
+    flex: 0 0 var(--buttons-dimensions);
+    height: var(--buttons-dimensions);
+    font-size: var(--big-font-size);
     background-color: #f39c12;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-
-    min-width: 30px;
-    max-width: 30px;
-    min-height: 30px;
-    max-height: 30px;
 }
 
 .quantity-control button:disabled {
