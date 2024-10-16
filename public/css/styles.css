@@ -26,6 +26,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 #img_logo{
@@ -193,6 +194,8 @@ header{
   opacity: 1;
 }
 
+/* Botão do carrossel */
+
 #btn_galeria{
     display: flex;
     align-items: center;
@@ -214,11 +217,37 @@ header{
     transition: background-color .3s ease;
 }
   
-  
+/* ESTILO DO QUEM SOMOS */
 
+#about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+}
 
+.abt-title{
+    color: #FAA52E;
+    font-size: 2rem;
+}
 
+.abt-subtitle{
+    font-size: 3rem;
+}
 
+.abt-description{
+    margin-top: 20px;
+}
+
+footer{
+    background-color: #FAA52E;
+}
+
+#footer_items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
 
