@@ -1,0 +1,108 @@
+:root {
+    --card-w: max(10vw, 120px);
+    --card-h: calc(1.7 * var(--card-w));
+    --normal-font-size: calc(var(--card-w)/12);
+    --big-font-size: calc(var(--normal-font-size)*1.2);
+    --buttons-dimensions: calc(var(--card-w)/6)
+}
+
+.product-div {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 15px;
+    padding: 15px;
+
+    flex: 0 0 var(--card-w);
+    height: var(--card-h);
+
+    background-color: #ececec;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    justify-content: space-around;
+}
+
+.product-div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* efeito de elevação ao passar o mouse */
+}
+
+.product-div img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.text-container h2 {
+    font-size: var(--big-font-size);
+    margin: 2% 0;
+    color: #e67e22; /* texto em laranja escuro */
+    white-space: normal; 
+    word-wrap: break-word; 
+}
+
+.text-container p {
+    margin: 2% 0;
+    font-size: var(--normal-font-size);
+    color: #7f8c8d; /* cinza suave */
+    flex: 1 1 100%;
+    white-space: normal; /* ensure text wraps */
+    word-wrap: break-word; /* break long words */
+}
+
+.text-container .price {
+    font-size: var(--normal-font-size);
+    font-weight: bold;
+}
+
+.quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 12%; */
+}
+
+.quantity-control input {
+    width: calc(var(--card-w)/3);
+    height: calc(var(--buttons-dimensions)/1.2);
+    text-align: center;
+    margin: 0 2%;
+    font-size: var(--normal-font-size);
+    -moz-appearance: textfield;
+}
+
+.quantity-control button {
+    padding: 2% 4%;
+    flex: 0 0 var(--buttons-dimensions);
+    height: var(--buttons-dimensions);
+    font-size: var(--big-font-size);
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-control button:disabled {
+    background-color: #bdc3c7; /* botão desativado em cinza */
+    cursor: not-allowed;
+}
+
+.price-quantity-container {
+    width: 100%;
+}
+
+.price-quantity-container .price {
+    font-size: var(--normal-font-size);
+    font-weight: bold;
+    text-align: right;
+    margin: 0;
+    text-align: right;
+    margin-top: 4%;
+    color: #d35400; /* laranja profundo */
+}
