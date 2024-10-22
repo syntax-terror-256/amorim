@@ -8,7 +8,6 @@ import fastifyCookie from '@fastify/cookie'
 
 // inicia servidor
 const fastify = Fastify()
-// const server = fastify()
 
 // declara constantes
 const __filename = fileURLToPath(import.meta.url)
@@ -85,6 +84,64 @@ fastify.get('/database/cache', async (req, reply) => {
     JSON.stringify(produtosComuns, null, 2)
   )
   reply.status(201)
+})
+
+// rotas do carrinho de compras
+fastify.get('/cart', (req, reply) => {
+  const cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : []
+  reply.send({ cart })
+})
+
+fastify.post('/cart', (req, reply) => {
+  const { product_id, quantity } = req.body
+
+  // retorna um erro caso o corpo não contenha os parâmetros esperados
+  if (typeof product_id !== 'number' || typeof quantity !== 'number') {
+    reply.status(400).send({ error: 'Bad Request' })
+  }
+
+  // pega o carrinho existente ou cria um novo
+  let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : []
+
+  // atualiza ou adiciona o item no carrinho
+  var isNew = true
+  cart = cart
+    .map((item) => {
+      if (item.product_id === product_id) {
+        isNew = false
+        item.quantity = quantity
+        return item
+      }
+      return item
+    })
+    .filter((item) => item.quantity > 0)
+
+  if (isNew) {
+    const newItem = { product_id, quantity }
+    cart.push(newItem)
+  }
+
+  // salva o carrinho atualizado no cookie
+  reply
+    .setCookie('cart', JSON.stringify(cart), {
+      path: '/',
+      httpOnly: true, // Secure the cookie (only accessible via HTTP)
+      sameSite: 'Lax', // Add security by limiting cross-site requests
+      secure: false, // Set true in production if using HTTPS
+    })
+    .send({ message: 'Item added to cart', cart })
+})
+
+fastify.delete('/cart', (req, reply) => {
+  reply
+    .setCookie('cart', '[]', {
+      path: '/',
+      httpOnly: true, // Secure the cookie (only accessible via HTTP)
+      sameSite: 'Lax', // Add security by limiting cross-site requests
+      secure: false, // Set true in production if using HTTPS
+    })
+    .status(204)
+    .send()
 })
 
 // especifica endereço e porta do servidor
