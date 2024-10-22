@@ -16,10 +16,24 @@
             <img id="imagem-bolo" src="https://www.estadao.com.br/resizer/oFDrDp3xgfze9zuyNaR5gnyURVA=/arc-anglerfish-arc2-prod-estadao/public/FIVYQFU6J5ND3PYRA6XQHR4NW4.jpg" alt="Imagem do Bolo">
         </div>
     </div>
+
+    <!-- Nova seção para escolha de quantidade de sabores -->
     <div class="opcoes">
         <div class="seletor-sabor">
-            <label for="sabor">Selecione o sabor do bolo:</label>
-            <select id="sabor">
+            <label for="quantidadeSabores">Quantos sabores você quer?</label>
+            <select id="quantidadeSabores" onchange="mostrarOpcoes()">
+                <option value="0">Selecione</option>
+                <option value="1">1 Sabor</option>
+                <option value="2">2 Sabores</option>
+                <option value="3">3 Sabores</option>
+            </select>
+        </div>
+
+        <!-- Opções para escolha dos sabores (inicialmente ocultas) -->
+        <div id="sabor1" class="sabores oculto">
+            <label for="sabor1">Sabor 1:</label>
+            <select>
+                <option value="">Escolha o sabor</option>
                 <option value="chocolate">Chocolate</option>
                 <option value="baunilha">Baunilha</option>
                 <option value="morango">Morango</option>
@@ -27,6 +41,34 @@
                 <option value="coco">Coco</option>
             </select>
         </div>
+
+        <div id="sabor2" class="sabores oculto">
+            <label for="sabor2">Sabor 2:</label>
+            <select>
+                <option value="">Escolha o sabor</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="baunilha">Baunilha</option>
+                <option value="morango">Morango</option>
+                <option value="limão">Limão</option>
+                <option value="coco">Coco</option>
+            </select>
+        </div>
+
+        <div id="sabor3" class="sabores oculto">
+            <label for="sabor3">Sabor 3:</label>
+            <select>
+                <option value="">Escolha o sabor</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="baunilha">Baunilha</option>
+                <option value="morango">Morango</option>
+                <option value="limão">Limão</option>
+                <option value="coco">Coco</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Seção para escolha de peso -->
+    <div class="opcoes">
         <div class="seletor-peso">
             <label>Peso do bolo (kg):</label>
             <div class="contador">
@@ -37,6 +79,43 @@
             </div>
         </div>
     </div>
-    <script src="js/bolo.js"></script>
+
+    <script>
+        // Função para exibir as opções de sabores de acordo com a quantidade escolhida
+        function mostrarOpcoes() {
+            var quantidadeSabores = document.getElementById('quantidadeSabores').value;
+            
+            document.getElementById('sabor1').classList.add('oculto');
+            document.getElementById('sabor2').classList.add('oculto');
+            document.getElementById('sabor3').classList.add('oculto');
+
+            if (quantidadeSabores == 1) {
+                document.getElementById('sabor1').classList.remove('oculto');
+            } else if (quantidadeSabores == 2) {
+                document.getElementById('sabor1').classList.remove('oculto');
+                document.getElementById('sabor2').classList.remove('oculto');
+            } else if (quantidadeSabores == 3) {
+                document.getElementById('sabor1').classList.remove('oculto');
+                document.getElementById('sabor2').classList.remove('oculto');
+                document.getElementById('sabor3').classList.remove('oculto');
+            }
+        }
+
+        // Controle de peso do bolo
+        var pesoAtual = 0.5;
+
+        document.getElementById('incrementar').addEventListener('click', function() {
+            pesoAtual += 0.5;
+            document.getElementById('peso').value = pesoAtual.toFixed(1);
+        });
+
+        document.getElementById('decrementar').addEventListener('click', function() {
+            if (pesoAtual > 0.5) {
+                pesoAtual -= 0.5;
+                document.getElementById('peso').value = pesoAtual.toFixed(1);
+            }
+        });
+    </script>
+        <script src="js/bolo.js"></script>
 </body>
 </html>
