@@ -16,32 +16,45 @@ async function fetchData() {
 
 fetchData().then(() => {
   function createDivFromProduct(data) {
+    // cria todo o container do produto
     const div = document.createElement('div');
     div.className = 'product-div';
-  
+    
+    // cria um elemento imagem
     const img = document.createElement('img');
     img.src = data.imagem;
     img.alt = data.nome;
   
+    // cria um container para textos
     const textContainer = document.createElement('div');
     textContainer.className = 'text-container';
-  
+    
+    // cria um elemento para o nome do produto
     const name = document.createElement('h2');
     name.textContent = data.nome;
     textContainer.appendChild(name);
-  
+
+    // cria um elemento para o preço base
+    const basePrice = document.createElement('p');
+    basePrice.textContent = `R$ ${(data.custo).toFixed(2)}`;
+    basePrice.className = 'price';
+    textContainer.appendChild(basePrice)
+    
+    // cria um elemento para a descrição do produto
     const description = document.createElement('p');
     description.textContent = data.info;
     textContainer.appendChild(description);
-  
+    
+    // cria um container para o controle de preço
     const priceQuantityContainer = document.createElement('div');
     priceQuantityContainer.className = 'price-quantity-container';
-  
+    
+    // cria um elemento de texto para o preço
     const price = document.createElement('p');
-    price.textContent = `Preço: R$ ${(data.custo).toFixed(2)}`;
+    price.textContent = `Total: R$ ${(0).toFixed(2)}`;
     price.className = 'price';
-    priceQuantityContainer.appendChild(price);
-  
+    
+    // cria um container para controle de adição ou remoção de itens
     const quantity = document.createElement('div');
     quantity.className = 'quantity-control';
   
@@ -60,14 +73,20 @@ fetchData().then(() => {
   
     const incrementButton = document.createElement('button');
     incrementButton.textContent = '+';
+
+    priceQuantityContainer.appendChild(quantity);
+    priceQuantityContainer.appendChild(price);
   
     // Lógica para controlar a quantidade
     incrementButton.addEventListener('click', () => {
         let currentValue = parseInt(quantityInput.value);
         if (currentValue === 0) {
             quantityInput.value = quantidadeMinima;
+            price.textContent = `Total: R$ ${(quantidadeMinima*data.custo).toFixed(2)}`
         } else {
-            quantityInput.value = currentValue + baseDeCalculo;
+            const newValue = currentValue + baseDeCalculo;
+            quantityInput.value = newValue;
+            price.textContent = `Total: R$ ${(newValue*data.custo).toFixed(2)}`
         }
         decrementButton.disabled = false; 
     });
@@ -75,9 +94,12 @@ fetchData().then(() => {
     decrementButton.addEventListener('click', () => {
         let currentValue = parseInt(quantityInput.value);
         if (currentValue > quantidadeMinima) {
-            quantityInput.value = currentValue - baseDeCalculo;
+          const newValue = currentValue - baseDeCalculo;
+          quantityInput.value = newValue;
+          price.textContent = `Total: R$ ${(newValue*data.custo).toFixed(2)}`
         } else {
             quantityInput.value = 0; // Se for igual ou menor que a quantidade mínima, vai para 0
+            price.textContent = `Total: R$ ${(0).toFixed(2)}`
         }
         decrementButton.disabled = quantityInput.value == 0;
     });
@@ -103,7 +125,6 @@ fetchData().then(() => {
     quantity.appendChild(decrementButton);
     quantity.appendChild(quantityInput);
     quantity.appendChild(incrementButton);
-    priceQuantityContainer.appendChild(quantity);
   
     div.appendChild(img);
     div.appendChild(textContainer);
