@@ -8,10 +8,11 @@
 </head>
 <body>
     <!-- TODO: finalizar o layout da página -->
+    
     <div class="toolbar">
         <div class="toolbar-top">
             <a href="/">
-                <img src="images/Frame 1.png" id="logo">
+                <img src="images/logo+texto.png" id="logo">
             </a>
             <img src="images/shopping-cart-icon.svg" id="cart">
         </div>
@@ -24,45 +25,51 @@
         </div>
     </div>
 
-    <div class="content">
-        <div id="salgados" class="container-categoria">
-            <div id="salgados-assados">
-                <text>Salgados Assados: </text>
-                <div id="salgados-assados-container" class="product-container"></div>
+        <div class="content" style="display: flex; flex-direction: row; overflow: hidden; flex-wrap: nowrap;">
+            <div class="cardapio">
+                <div id="salgados" class="container-categoria">
+                    <div id="salgados-assados">
+                        <text>Salgados Assados: </text>
+                        <div id="salgados-assados-container" class="product-container"></div>
+                    </div>
+                    <div id="salgados-tradicionais">
+                        <text>Salgados Tradicionais: </text>
+                        <div id="salgados-tradicionais-container" class="product-container"></div>
+                    </div>
+                    <div id="salgados-especiais">
+                        <text>Salgados Especiais: </text>
+                        <div id="salgados-especiais-container" class="product-container"></div>
+                    </div>
+                </div>
+
+                <div id="doces" class="container-categoria" style="display: none;">
+                    <div id="doces-tradicionais">
+                        <text>Doces Tradicionais: </text>
+                        <div id="doces-tradicionais-container" class="product-container"></div>
+                    </div>
+                    <div id="doces-especiais">
+                        <text>Doces Especiais: </text>
+                        <div id="doces-especiais-container" class="product-container"></div>
+                    </div>
+                </div>
+
+                <div id="outros" class="container-categoria" style="display: none;">
+                    <div id="tortas-salgadas">
+                        <text>Tortas Salgadas: </text>
+                        <div id="tortas-salgadas-container" class="product-container"></div>
+                    </div>
+                    <div id="mini-delicias">
+                        <text>Mini Delícias: </text>
+                        <div id="mini-delicias-container" class="product-container"></div>
+                    </div>
+                </div>
             </div>
-            <div id="salgados-tradicionais">
-                <text>Salgados Tradicionais: </text>
-                <div id="salgados-tradicionais-container" class="product-container"></div>
-            </div>
-            <div id="salgados-especiais">
-                <text>Salgados Especiais: </text>
-                <div id="salgados-especiais-container" class="product-container"></div>
+            <div class="carrinho">
+                
             </div>
         </div>
-
-        <div id="doces" class="container-categoria" style="display: none;">
-            <div id="doces-tradicionais">
-                <text>Doces Tradicionais: </text>
-                <div id="doces-tradicionais-container" class="product-container"></div>
-            </div>
-            <div id="doces-especiais">
-                <text>Doces Especiais: </text>
-                <div id="doces-especiais-container" class="product-container"></div>
-            </div>
-        </div>
-
-        <div id="outros" class="container-categoria" style="display: none;">
-            <div id="tortas-salgadas">
-                <text>Tortas Salgadas: </text>
-                <div id="tortas-salgadas-container" class="product-container"></div>
-            </div>
-            <div id="mini-delicias">
-                <text>Mini Delícias: </text>
-                <div id="mini-delicias-container" class="product-container"></div>
-            </div>
-        </div>
-    </div>
-
+    <script src="js/cart.js"></script>
+    <script src="js/product-from-div.js"></script>
     <script src="js/dynamic.js"></script>
     <script src="js/adjust-toolbar-margin.js"></script>
 </body>

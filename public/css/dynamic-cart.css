@@ -1,0 +1,8 @@
+.carrinho {
+    flex: 0 0 auto;
+}
+
+.cart-item img {
+    width: min-content;
+    height: 60px;
+}
