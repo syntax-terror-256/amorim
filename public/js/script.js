@@ -1,5 +1,14 @@
 
 document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('#menu-toggle');
+  const navList = document.querySelector('#nav_list');
+
+  toggle.addEventListener('click', () => {
+      navList.classList.toggle('show');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     function createCarousel(carouselId) {
       const carousel = document.querySelector(`#${carouselId}`);
       const images = carousel.querySelectorAll('.carousel-image');
