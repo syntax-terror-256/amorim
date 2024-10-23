@@ -1,11 +1,11 @@
-var incrementEvent
-var decrementEvent
-
 const cartDiv = document.getElementsByClassName('carrinho')[0]
 
+// TODO: atualizar elemento do carrinho sempre que um novo item for adicionado
+// TODO: adicionar opção de remover item
+// TODO: configurar event listener de 'quantityInput'
 function createCartItem(itemCarrinho, produtos) {
   // pega o produto atual
-  var item = null
+  var item
   for (const index in produtos) {
     console.log(produtos[index].produto_id, itemCarrinho)
 
@@ -38,21 +38,15 @@ function createCartItem(itemCarrinho, produtos) {
     quantityControl.getElementsByClassName('quantity-input')[0]
   const price = quantityControl.getElementsByClassName('price')[0]
 
-  // configura botões de controle de quantidade
+  // salva os parâmetros para atualização do controle de quantidade no atributo 'EventArgsList' to objeto
   item.EventArgsList.push([quantityInput, item, decrementButton, price])
+
+  // configura botões de controle de quantidade
   incrementButton.addEventListener('click', () => {
-    const argsList = item.EventArgsList
-    for (const index in argsList) {
-      const args = argsList[index]
-      incrementEvent(...args)
-    }
+    item.incrementAll()
   })
   decrementButton.addEventListener('click', () => {
-    const argsList = item.EventArgsList
-    for (const index in argsList) {
-      const args = argsList[index]
-      decrementEvent(...args)
-    }
+    item.decrementAll()
   })
 
   // coloca todos os elementos no div do item e junta ao elemento do carrinho

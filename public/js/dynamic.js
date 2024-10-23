@@ -1,5 +1,6 @@
 var showProducts // função declarada em product-from-div.js
 var createCartItem // função declarada em cart.js
+var setupProducts // função declarada em setup-products.js
 
 // var categorias
 var produtos
@@ -13,24 +14,28 @@ async function fetchData() {
     const produtosResponse = await fetch('/database/ProdutosComuns')
     produtos = await produtosResponse.json()
 
+    // prepara os objetos na lista de produtos para serem utilizados pelas funções do carrinho e cardápio
+    setupProducts(produtos)
+
     const cartResponse = await fetch('/cart')
     carrinho = await cartResponse.json()
+    carrinho = carrinho.cart
   } catch (error) {
     console.error('Error fetching data:', error)
   }
 }
 
 fetchData().then(() => {
-  showProducts(1, produtos)
-  showProducts(2, produtos)
-  showProducts(3, produtos)
-  showProducts(4, produtos)
-  showProducts(5, produtos)
-  showProducts(6, produtos)
-  showProducts(7, produtos)
+  showProducts(1, produtos, carrinho)
+  showProducts(2, produtos, carrinho)
+  showProducts(3, produtos, carrinho)
+  showProducts(4, produtos, carrinho)
+  showProducts(5, produtos, carrinho)
+  showProducts(6, produtos, carrinho)
+  showProducts(7, produtos, carrinho)
 
-  for (const index in carrinho.cart) {
-    createCartItem(carrinho.cart[index], produtos)
+  for (const index in carrinho) {
+    createCartItem(carrinho[index], produtos)
   }
 })
 

@@ -1,56 +1,5 @@
-function incrementEvent(quantityInput, data, decrementButton, price) {
-  console.log(data)
-
-  let currentValue = parseInt(quantityInput.value)
-  var newValue = currentValue
-
-  if (currentValue === 0) {
-    newValue = data.quantidade_minima
-    quantityInput.value = newValue
-    price.textContent = `Total: R$ ${(newValue * data.custo).toFixed(2)}`
-  } else {
-    newValue = currentValue + data.base_de_calculo
-    quantityInput.value = newValue
-    price.textContent = `Total: R$ ${(newValue * data.custo).toFixed(2)}`
-  }
-  decrementButton.disabled = false
-  fetch('cart', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: `{"product_id": ${data.produto_id}, "quantity": ${newValue}}`,
-  })
-}
-
-function decrementEvent(quantityInput, data, decrementButton, price) {
-  let currentValue = parseInt(quantityInput.value)
-  var newValue = currentValue
-
-  if (currentValue > data.quantidade_minima) {
-    newValue = currentValue - data.base_de_calculo
-    quantityInput.value = newValue
-    price.textContent = `Total: R$ ${(newValue * data.custo).toFixed(2)}`
-  } else {
-    newValue = 0
-    quantityInput.value = newValue
-    price.textContent = `Total: R$ ${(0).toFixed(2)}`
-  }
-  decrementButton.disabled = quantityInput.value == 0
-  fetch('cart', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: `{"product_id": ${data.produto_id}, "quantity": ${newValue}}`,
-  })
-}
-
-function createDivFromProduct(data) {
-  // cria uma lista de callbacks
-  data.EventArgsList = []
-  data.base_de_calculo = 1
-
+// TODO: configurar o event listener de 'quantityInput'
+function createDivFromProduct(data, carrinho) {
   // cria todo o container do produto
   const div = document.createElement('div')
   div.className = 'product-div'
@@ -92,7 +41,7 @@ function createDivFromProduct(data) {
 
   // cria um container para controle de adição ou remoção de itens
   let itemQuantity = 0
-  let item = carrinho.cart.find((item) => item.product_id === data.produto_id)
+  let item = carrinho.find((item) => item.product_id === data.produto_id)
 
   if (item) {
     itemQuantity = item.quantity
@@ -126,19 +75,12 @@ function createDivFromProduct(data) {
   // Lógica para controlar a quantidade
   data.EventArgsList.push([quantityInput, data, decrementButton, price])
   incrementButton.addEventListener('click', () => {
-    const argsList = data.EventArgsList
-    for (const index in argsList) {
-      const args = argsList[index]
-      incrementEvent(...args)
-    }
+    console.log(data)
+    data.incrementAll()
   })
 
   decrementButton.addEventListener('click', () => {
-    const argsList = data.EventArgsList
-    for (const index in argsList) {
-      const args = argsList[index]
-      decrementEvent(...args)
-    }
+    data.decrementAll()
   })
 
   // Validação ao perder o foco
@@ -168,11 +110,10 @@ function createDivFromProduct(data) {
   div.appendChild(textContainer)
   div.appendChild(priceQuantityContainer)
 
-  console.log(data.incrementEventArgsList)
   return div
 }
 
-function showProducts(categoryId, produtos) {
+function showProducts(categoryId, produtos, carrinho) {
   const containers = {
     1: document.getElementById('tortas-salgadas-container'),
     2: document.getElementById('mini-delicias-container'),
@@ -189,7 +130,7 @@ function showProducts(categoryId, produtos) {
     produtos
       .filter((product) => product.categoria_id === categoryId)
       .forEach((product) => {
-        const productDiv = createDivFromProduct(product)
+        const productDiv = createDivFromProduct(product, carrinho)
         container.appendChild(productDiv)
       })
   }
