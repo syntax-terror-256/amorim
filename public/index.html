@@ -9,6 +9,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="js/script.js"></script>
     <title>Amorim</title>
 </head>
 
@@ -16,7 +17,7 @@
     <header>
         <!--BARRA DE NAVEGAÇÃO-->
         <nav id="navbar">
-            <img id="img_logo" src="images/Frame 1.png" alt="logo">
+            <img id="img_logo" src="images/logo+texto.png" alt="logo">
 
             <ul id="nav_list">
                 <li class="nav-item active">
@@ -29,7 +30,7 @@
                     <a href="#about">Quem somos?</a>
                 </li>
             </ul>
-            
+
             <a href="/cardapio" style="text-decoration: none;"> <!-- target="_blank" -->
                 <button class="btn-default">
                     Peça aqui
@@ -38,9 +39,9 @@
         </nav>
     </header>
     <!--CONTEUDO DA PAGINA-->
-    <main id="content"> 
+    <main id="content">
         <!--Inicio-->
-        <section id="home">   
+        <section id="home">
             <!--Conteudo da esquerda (texto)-->
             <div id="cta">
                 <h1 class="title">
@@ -66,10 +67,98 @@
             </div>
             <!--Conteudo da direita (imagem)-->
             <div id="banner">
-                <img src="images/1.png" alt="">
+                <img src="images/chef.png" alt="">
             </div>
+        </section>
+
+        <section id="galeria">
+            <h2 class="section-titlle">Galeria</h2>
+            <h3 class="section-subtitlle">Conheça mais sobre nossos produtos</h3>
+
+            <!--Container com os itens da galeria-->
+            <div class="container">
+                <div class="description">
+                    <h2>Salgados</h2>
+                    <p>Esta é uma breve descrição do conteúdo ao lado da imagem. Você pode adicionar qualquer tipo de
+                        texto aqui, explicando detalhes importantes.</p>
+                </div>
+
+                <div class="image-container">
+                    <div class="carousel" id="carousel1">
+                        <img src="images/img1.png" alt="" class="carousel-image active">
+                        <img src="images/img2.png" alt="" class="carousel-image">
+                        <img src="images/img3.png" alt="" class="carousel-image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="description">
+                    <h2>Bolos</h2>
+                    <p>Esta é uma breve descrição do conteúdo ao lado da imagem. Você pode adicionar qualquer tipo de
+                        texto aqui, explicando detalhes importantes.</p>
+                </div>
+
+                <div class="image-container">
+                    <div class="carousel" id="carousel2">
+                        <img src="images/img1.png" alt="" class="carousel-image active">
+                        <img src="images/img2.png" alt="" class="carousel-image">
+                        <img src="images/img3.png" alt="" class="carousel-image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="description">
+                    <h2>Buffet</h2>
+                    <p>Esta é uma breve descrição do conteúdo ao lado da imagem. Você pode adicionar qualquer tipo de
+                        texto aqui, explicando detalhes importantes.</p>
+                </div>
+
+                <div class="image-container">
+                    <div class="carousel" id="carousel3">
+                        <img src="images/img1.png" alt="" class="carousel-image active">
+                        <img src="images/img2.png" alt="" class="carousel-image">
+                        <img src="images/img3.png" alt="" class="carousel-image">
+                    </div>
+                </div>
+            </div>
+
+            <div id="btn_galeria">
+                <a href="#" style="text-decoration: none;">
+                    <button class="btn-galeria">
+                        Clique aqui para realizar o pedido
+                    </button>
+                </a>
+            </div>
+        </section>
+
+        <section id="about">
+            <!--Parte da esquerda-->
+
+            <div id="description_abt">
+                <h2 class="abt-title">
+                    Sobre nós
+                </h2>
+                <h3 class="abt-subtitle">
+                    Conheça um pouco mais sobre nossa empresa
+                </h3>
+                <p class="abt-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quas eligendi consequatur
+                    consequuntur, dolorum perferendis atque, sint possimus maiores porro sunt. Omnis accusamus voluptas
+                    sit repudiandae eveniet a soluta quas.
+                </p>
+            </div>
+
+            <img src="images/empresarias.png" alt="">
         </section>
     </main>
 
+    <footer>
+        <p>&copy; 2024 - Minha Empresa. Todos os direitos reservados.</p>
+    </footer>
+
+
 </body>
+
 </html>
