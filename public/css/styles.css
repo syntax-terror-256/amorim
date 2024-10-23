@@ -1,126 +1,377 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 body{
-    background-color: #FAA52E80;
+  background-color: #FCD196;
 }
 
 section{
-    padding: 28px 8%;
+  padding: 28px 8%;
 }
 
 header{
-    width: 100%;
-    padding: 28px 8%;
+  width: 100%;
+  padding: 28px 8%;
 }
 
 /* ESTILO DA BARRA DE NAVEGAÇÃO */ 
-#navbar{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+#navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-#img_logo{
-    max-width: 100%;
-    object-fit: cover; /* POSSIVEL DE DAR ERRO */
+#img_logo {
+  max-width: 100%;
+  object-fit: cover;
 }
 
-#nav_list{
-    display: flex;
-    list-style: none;
-    gap: 48px;   
+#nav_list {
+  display: flex;
+  list-style: none;
+  gap: 48px;
 }
 
-.nav-item a{
-    text-decoration: none;
-    color: #1d1d1dad;
-    font-weight: 600;
+.nav-item a {
+  text-decoration: none;
+  color: #1d1d1dad;
+  font-weight: 600;
 }
 
-.nav-item.active a{
-    color: #1d1d1d;
-    border-bottom: 3px solid #FAA52E;
+.nav-item.active a {
+  color: #1d1d1d;
+  border-bottom: 3px solid #FAA52E;
+}
+
+/* Melhorando a navbar para dispositivos móveis */
+@media (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+  }
+
+  /* Menu hambúrguer */
+  #menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  #nav_list {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #FAA52E;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+
+  #nav_list.show {
+    display: block;
+  }
+
+  .nav-item a {
+    font-size: 1rem;
+  }
 }
 
 /* ESTILO DO BOTÃO PADRÃO */
-.btn-default{
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FAA52E;
-    border-radius: 12px;
-    padding: 10px 14px;
-    font-weight: 600;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
-    transition: background-color .3s ease;
+.btn-default {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FAA52E;
+  border-radius: 12px;
+  padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 14px);
+  font-weight: 600;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color .3s ease;
 }
 
-.btn-default:hover{
-    background-color: #459FB580;
+.btn-default:hover {
+  background-color: #459FB580;
 }
+
 /* ESTILO DA SECTION HOME (INICIO) */
 #home {
-    display: flex;
-    min-height: calc(100vh - 114px);
+  display: flex;
+  height: 600px;
 }
 
-#cta{
-    width: 35%;
-    display: flex;
+#cta {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+
+#cta .title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #1d1d1d;
+}
+
+#cta .description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+#cta_buttons {
+  display: flex;
+  gap: 24px;
+}
+
+#cta_buttons a {
+  text-decoration: none;
+  color: #1d1d1d;
+}
+
+#insta_btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 8px 14px;
+  font-weight: 500;
+  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+#insta_btn:hover {
+  background-color: #459FB580;
+}
+
+#insta_btn .btn-default {
+  font-size: 1.25rem;
+}
+
+/* POSICIONAMENTO DO BANNER (IMAGEM) */
+#banner {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 70%;
+}
+
+#banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsividade - Esconder imagem do chef em telas menores */
+@media (max-width: 768px) {
+  #banner img {
+    display: none; /* Esconde a imagem quando a largura da tela for menor que 768px */
+  }
+}
+
+/* Melhorias de responsividade */
+@media (max-width: 768px) {
+  #home {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 20px 5%;
+  }
+
+  #cta {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #cta.title,
+  #cta.description{
+    text-align: center;
+  }
+
+  #banner {
+    height: auto;
+  }
+}
+
+/* ESTILO DA SECTION GALERIA */
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ESTILO DO CONTAINER */
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.description, .image-container {
+  flex: 1;
+  width: 50%;
+}
+
+.description {
+  padding-right: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+/* Botão do carrossel */
+#btn_galeria {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.btn-galeria {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FAA52E;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: larger;
+  font-weight: 600;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color .3s ease;
+}
+
+.btn-galeria:hover {
+  background-color: #459FB580;
+}
+
+/* ESTILO DO QUEM SOMOS */
+#about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-direction: column; /* Alterado para stack por padrão */
+}
+
+#about img {
+  width: 100%;
+  max-width: 600px; /* Tamanho máximo da imagem em telas grandes */
+  height: auto;
+}
+
+.abt-title {
+  color: #FAA52E;
+  font-size: 2rem;
+}
+
+.abt-subtitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.abt-description {
+  margin-top: 20px;
+}
+
+/* Responsividade para a seção "about" */
+@media (min-width: 768px) {
+  #about {
     flex-direction: column;
-    gap: 28px;
-    margin-top: 5%;
-}
-#cta .title{
-    font-size: 4rem;
-    color: #1d1d1d;
-}
-#cta .description{
-    font-size: 1.2rem;
+  }
+
+  #about img{
+    max-width: 80%; /* Reduz o tamanho da imagem para caber na tela */
+    height: auto;
+  }
+
 }
 
-#cta_buttons{
-    display: flex;
-    gap: 24px;
+footer {
+  background-color: #FAA52E;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16px;
 }
 
-#cta_buttons a{
-    text-decoration: none;
-    color: #1d1d1d;
-}
-#insta_btn{
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 8px 14px;
-    font-weight: 500;
-    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+footer p {
+  margin: 0;
 }
 
-#insta_btn .btn-default{
-    font-size: 1.25rem;
-}
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 375px) {
+  #cta .title {
+    font-size: 1.8rem;
+  }
 
-/*POSICIONAMENTO DO BANNER (IMAGEM)*/
-#banner{
-    display: flex;
-    align-items: start;
-    justify-content: end;
-    width: 70%;
-}
+  #cta_buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
 
-#banner img{
-    height: 100%;
-    width: fit-content;
+  #insta_btn {
+    font-size: 0.8rem;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
 }

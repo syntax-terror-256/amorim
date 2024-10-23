@@ -17,8 +17,7 @@ body {
     justify-content: space-between;
     width: 60%;
     border: 1px solid #FAA52E;
-    background-color: #e0e0e0
-    ;
+    background-color: #e0e0e0;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -68,6 +67,31 @@ body {
     margin: 0 10px;
 }
 
+/* Estilo das opções de sabores */
+.sabores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Oculto - para esconder as opções até que sejam necessárias */
+.oculto {
+    display: none;
+}
+
 /* Estilo do contador */
 .contador {
     display: flex;
@@ -106,5 +130,56 @@ input[type="text"] {
 }
 
 .adicionar:hover {
-    background-color: #ee8e3f;
+    background-color: #e07b2f;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .opcoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .seletor-sabor,
+    .seletor-peso {
+        margin-bottom: 20px;
+    }
+
+    .contador {
+        flex-direction: column;
+    }
+}
+.seletor-sabor {
+    flex: none; /* Se estiver usando flexbox, isso remove o comportamento automático de expandir */
+    width: 50%; /* ou outro valor conforme desejado */
+    max-width: 300px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza o contêiner */
+}
+/* O contêiner será exibido dinamicamente, mas mantendo a formatação */
+.seletor-sabor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos seletores de sabor */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }

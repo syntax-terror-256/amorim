@@ -41,3 +41,24 @@ btnDecrementar.addEventListener('click', () => {
 btnAdicionar.addEventListener('click', () => {
     alert(`Você adicionou ${inputPeso.value} kg de bolo de ${saborSelect.value} ao carrinho!`);
 });
+document.getElementById('quantidade').addEventListener('change', function() {
+    const quantidade = this.value;
+    const seletorSabor = document.getElementById('seletor-sabor');
+    
+    // Esconde todos os seletores de sabor inicialmente
+    const sabores = document.querySelectorAll('.sabor');
+    sabores.forEach(sabor => sabor.style.display = 'none');
+    
+    // Mostra o contêiner de seleção de sabores
+    if (quantidade) {
+        seletorSabor.style.display = 'flex'; // Mostra o contêiner de sabores
+
+        // Exibe a quantidade de seletores de sabor de acordo com o valor selecionado
+        for (let i = 1; i <= quantidade; i++) {
+            document.getElementById(`sabor${i}`).style.display = 'block';
+            document.getElementById(`label-sabor${i}`).style.display = 'block';
+        }
+    } else {
+        seletorSabor.style.display = 'none'; // Oculta o contêiner de sabores
+    }
+});
