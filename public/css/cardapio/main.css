@@ -1,5 +1,6 @@
-@import url('dynamic-cards.css');
-@import url('dynamic-toolbar.css');
+@import url('cards.css');
+@import url('toolbar.css');
+@import url('cart.css');
 
 body {
     font-family: Arial, sans-serif;
@@ -37,5 +38,18 @@ button:hover {
     overflow-x: auto; 
     overflow-y: hidden; 
     white-space: nowrap;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;
 }
 
+.cardapio {
+    flex: 0 0 auto;
+    width: 72%;
+}
+
+.carrinho {
+    flex: 0 0 auto;
+    padding: 20px;
+    width: 28%;
+    background-color: #ececec;
+}
