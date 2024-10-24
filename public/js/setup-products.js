@@ -1,5 +1,3 @@
-var updateCartNow // true quando o carrinho deve ser atualizado
-
 // prepara os objetos na lista de produtos para serem utilizados pelas funções do carrinho e cardápio
 function setupProducts(products) {
   for (const index in products) {
@@ -81,7 +79,7 @@ function setupProducts(products) {
       }).then((response) => {
         response.json().then((jsonResponse) => {
           carrinho = jsonResponse.cart
-          updateCartNow = true
+          CartManager.updateCartFlag = true
         })
       })
     }
@@ -108,7 +106,7 @@ function setupProducts(products) {
       }).then((response) => {
         response.json().then((jsonResponse) => {
           carrinho = jsonResponse.cart
-          updateCartNow = true
+          CartManager.updateCartFlag = true
         })
       })
     }

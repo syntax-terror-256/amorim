@@ -1,8 +1,3 @@
-var showProducts // função declarada em product-from-div.js
-var updateCart // função declarada em cart.js
-var repeatUpdateCart // função declarada em cart.js
-var setupProducts // função declarada em setup-products.js
-
 // var categorias
 var produtos
 var carrinho
@@ -35,8 +30,7 @@ fetchData().then(() => {
   showProducts(6, produtos, carrinho)
   showProducts(7, produtos, carrinho)
 
-  updateCart(carrinho, produtos)
-  repeatUpdateCart(100)
+  CartManager.startCartUpdateListener(100)
 })
 
 const showSalgadosBtn = document.getElementById('show-salgados')
