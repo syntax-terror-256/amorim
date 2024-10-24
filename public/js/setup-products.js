@@ -1,3 +1,5 @@
+var updateCartNow // true quando o carrinho deve ser atualizado
+
 // prepara os objetos na lista de produtos para serem utilizados pelas funções do carrinho e cardápio
 function setupProducts(products) {
   for (const index in products) {
@@ -17,8 +19,6 @@ function setupProducts(products) {
       decrementButton,
       price
     ) {
-      console.log(data)
-
       let currentValue = parseInt(quantityInput.value)
       var newValue = currentValue
 
@@ -32,13 +32,7 @@ function setupProducts(products) {
         price.textContent = `Total: R$ ${(newValue * data.custo).toFixed(2)}`
       }
       decrementButton.disabled = false
-      fetch('cart', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: `{"product_id": ${data.produto_id}, "quantity": ${newValue}}`,
-      })
+      return [data.produto_id, newValue]
     }
 
     // método que decrementa a quantidade exibida no controle de quantidade
@@ -62,13 +56,7 @@ function setupProducts(products) {
         price.textContent = `Total: R$ ${(0).toFixed(2)}`
       }
       decrementButton.disabled = quantityInput.value == 0
-      fetch('cart', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: `{"product_id": ${data.produto_id}, "quantity": ${newValue}}`,
-      })
+      return [data.produto_id, newValue]
     }
 
     // chama o método de incremento para cada grupo de argumentos no atributo 'EventArgsList'.
@@ -76,10 +64,26 @@ function setupProducts(products) {
     // que os dois sejam atualizados ao mesmo tempo quanto qualquer um deles for pressionado.
     products[index].incrementAll = function () {
       const argsList = this.EventArgsList
+      var id
+      var value
       for (const index in argsList) {
         const args = argsList[index]
-        this.incrementEvent(...args)
+        let changes = this.incrementEvent(...args)
+        id = changes[0]
+        value = changes[1]
       }
+      fetch('cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: `{"product_id": ${id}, "quantity": ${value}}`,
+      }).then((response) => {
+        response.json().then((jsonResponse) => {
+          carrinho = jsonResponse.cart
+          updateCartNow = true
+        })
+      })
     }
 
     // chama o método de decremento para cada grupo de argumentos no atributo 'EventArgsList'.
@@ -87,10 +91,26 @@ function setupProducts(products) {
     // que os dois sejam atualizados ao mesmo tempo quanto qualquer um deles for pressionado.
     products[index].decrementAll = function () {
       const argsList = this.EventArgsList
+      var id
+      var value
       for (const index in argsList) {
         const args = argsList[index]
-        this.decrementEvent(...args)
+        let changes = this.decrementEvent(...args)
+        id = changes[0]
+        value = changes[1]
       }
+      fetch('cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: `{"product_id": ${id}, "quantity": ${value}}`,
+      }).then((response) => {
+        response.json().then((jsonResponse) => {
+          carrinho = jsonResponse.cart
+          updateCartNow = true
+        })
+      })
     }
   }
 }

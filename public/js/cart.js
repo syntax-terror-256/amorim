@@ -1,14 +1,11 @@
 const cartDiv = document.getElementsByClassName('carrinho')[0]
 
-// TODO: atualizar elemento do carrinho sempre que um novo item for adicionado
 // TODO: adicionar opção de remover item
 // TODO: configurar event listener de 'quantityInput'
 function createCartItem(itemCarrinho, produtos) {
   // pega o produto atual
   var item
   for (const index in produtos) {
-    console.log(produtos[index].produto_id, itemCarrinho)
-
     if (produtos[index].produto_id === itemCarrinho.product_id) {
       item = produtos[index]
       break
@@ -54,4 +51,25 @@ function createCartItem(itemCarrinho, produtos) {
   itemDiv.appendChild(itemName)
   itemDiv.appendChild(quantityControl)
   cartDiv.appendChild(itemDiv)
+}
+
+// atualiza o elemento do carrinho de compras
+function updateCart(carrinho, produtos) {
+  cartDiv.innerHTML = ''
+
+  for (const index in carrinho) {
+    createCartItem(carrinho[index], produtos)
+  }
+}
+
+var updateCartNow = false // true quando o carrinho deve ser atualizado
+// atualiza o elemento do carrinho de compras a cada x ms, caso necessário
+async function repeatUpdateCart(ms) {
+  while (true) {
+    if (updateCartNow) {
+      updateCartNow = false
+      updateCart(carrinho, produtos)
+    }
+    await new Promise((resolve) => setTimeout(resolve, ms))
+  }
 }

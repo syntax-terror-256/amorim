@@ -75,7 +75,6 @@ function createDivFromProduct(data, carrinho) {
   // Lógica para controlar a quantidade
   data.EventArgsList.push([quantityInput, data, decrementButton, price])
   incrementButton.addEventListener('click', () => {
-    console.log(data)
     data.incrementAll()
   })
 
