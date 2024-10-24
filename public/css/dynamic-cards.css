@@ -78,6 +78,7 @@
     padding: 2% 4%;
     flex: 0 0 var(--buttons-dimensions);
     height: var(--buttons-dimensions);
+    width: var(--buttons-dimensions);
     font-size: var(--big-font-size);
     background-color: #f39c12;
     color: white;
