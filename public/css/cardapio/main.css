@@ -1,6 +1,6 @@
-@import url('dynamic-cards.css');
-@import url('dynamic-toolbar.css');
-@import url('dynamic-cart.css');
+@import url('cards.css');
+@import url('toolbar.css');
+@import url('cart.css');
 
 body {
     font-family: Arial, sans-serif;

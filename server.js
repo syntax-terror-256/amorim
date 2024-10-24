@@ -32,7 +32,7 @@ fastify.get('/', () => {
 })
 
 fastify.get('/cardapio', () => {
-  return readFile('public/dynamic.html')
+  return readFile('public/cardapio.html')
 })
 
 // rotas para comunicação com banco de dados
