@@ -103,31 +103,33 @@ fastify.post('/cart', (req, reply) => {
   // pega o carrinho existente ou cria um novo
   let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : []
 
-  // atualiza ou adiciona o item no carrinho
+  // atualiza o item caso já esteja no carrinho
   var isNew = true
-  cart = cart
-    .map((item) => {
-      if (item.product_id === product_id) {
-        isNew = false
-        item.quantity = quantity
-        return item
-      }
+  cart = cart.map((item) => {
+    if (item.product_id === product_id) {
+      isNew = false
+      item.quantity = quantity
       return item
-    })
-    .filter((item) => item.quantity > 0)
+    }
+    return item
+  })
 
+  // adiciona o item caso ainda não esteja no carrinho
   if (isNew) {
     const newItem = { product_id, quantity }
     cart.push(newItem)
   }
 
+  // remove itens com quantidade menor ou igual a zero
+  cart = cart.filter((item) => item.quantity > 0)
+
   // salva o carrinho atualizado no cookie
   reply
     .setCookie('cart', JSON.stringify(cart), {
       path: '/',
-      httpOnly: true, // Secure the cookie (only accessible via HTTP)
-      sameSite: 'Lax', // Add security by limiting cross-site requests
-      secure: false, // Set true in production if using HTTPS
+      httpOnly: true,
+      sameSite: 'Lax',
+      secure: false,
     })
     .send({ message: 'Item added to cart', cart })
 })
@@ -136,9 +138,9 @@ fastify.delete('/cart', (req, reply) => {
   reply
     .setCookie('cart', '[]', {
       path: '/',
-      httpOnly: true, // Secure the cookie (only accessible via HTTP)
-      sameSite: 'Lax', // Add security by limiting cross-site requests
-      secure: false, // Set true in production if using HTTPS
+      httpOnly: true,
+      sameSite: 'Lax',
+      secure: false,
     })
     .status(204)
     .send()
