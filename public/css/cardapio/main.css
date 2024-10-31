@@ -9,8 +9,6 @@ body {
 }
 
 button {
-    margin: 0 5px;
-    padding: 12px 18px;
     border: none;
     background-color: #f39c12; /* Laranja vivo */
     color: white;
@@ -42,14 +40,42 @@ button:hover {
     -ms-overflow-style: none;
 }
 
+.img-text-container {
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    border: none;
+    cursor: pointer;
+    font-size: min(16px, 3vw);
+    align-items: center;
+    display: flex;
+}
+
+.img-text-container img {
+    height: min(32px, 6vw);
+}
+
+.img-text-container text{
+    margin-left: 0.4vw;
+}
+
+.content, html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling on body */
+}
+
 .cardapio {
     flex: 0 0 auto;
-    width: 72%;
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 .carrinho {
     flex: 0 0 auto;
     padding: 20px;
-    width: 28%;
+    max-height: 100%;
     background-color: #ececec;
+    overflow-y: auto;
+}
+
+.cardapio text {
+    font-size: large;
 }

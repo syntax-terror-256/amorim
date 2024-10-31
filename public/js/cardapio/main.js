@@ -36,6 +36,7 @@ fetchData().then(() => {
 const showSalgadosBtn = document.getElementById('show-salgados')
 const showDocesBtn = document.getElementById('show-doces')
 const showOutrosBtn = document.getElementById('show-outros')
+const cartButton = document.getElementById('cart')
 
 showSalgadosBtn.addEventListener('click', () => {
   document.querySelectorAll('.container-categoria').forEach((element) => {
@@ -65,4 +66,36 @@ showOutrosBtn.addEventListener('click', () => {
       element.style.display = ''
     }
   })
+})
+
+cartButton.addEventListener('click', () => {
+  const cartElement = document.querySelector('.carrinho')
+  const cardapioElement = document.querySelector('.cardapio')
+  // alternar carrinho no pc
+  console.log(window.innerWidth)
+  if (window.innerWidth > 768) {
+    if (cartElement.style.display === 'none') {
+      cartElement.style.display = 'block'
+      cartElement.style.width = '28%'
+      cardapioElement.style.width = '72%'
+    } else {
+      cartElement.style.display = 'none'
+      cartElement.style.width = '100%'
+      cardapioElement.style.width = '100%'
+    }
+  }
+  // alternar carrinho no celular
+  else {
+    if (cartElement.style.display === 'none') {
+      cartElement.style.display = 'block'
+      cardapioElement.style.display = 'none'
+      cartElement.style.width = '100%'
+      cardapioElement.style.width = '100%'
+    } else {
+      cartElement.style.display = 'none'
+      cardapioElement.style.display = 'block'
+      cartElement.style.width = '100%'
+      cardapioElement.style.width = '100%'
+    }
+  }
 })

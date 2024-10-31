@@ -13,13 +13,9 @@
     flex-direction: column;
 }
 
-.toolbar button {
-    margin-right: 5px;
-    padding: 10px;
-    background-color: #f39c12;
-    border: none;
-    cursor: pointer;
-    font-size: min(16px, 3vw);
+.toolbar-bottom {
+    display: flex;
+    flex-direction: row;
 }
 
 .toolbar-top {
