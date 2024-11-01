@@ -17,54 +17,104 @@
             <img src="images/shopping-cart-icon.svg" id="cart">
         </div>
         <div class="toolbar-bottom">
-            <button id="show-salgados">Salgados</button>
-            <button id="show-doces">Doces</button>
-            <button id="show-outros">Outros</button>
-            <button id="show-bolos">Bolos</button>
-            <button id="show-buffet">Buffet</button>
-        </div>
+            <button id="show-salgados">
+                <div class="img-text-container">
+                    <img src="images/salgado.png" alt="">
+                    <text>Salgados</text>
+                </div>
+            </button>
+            
+            <button id="show-doces">
+                <div class="img-text-container">
+                    <img src="images/doce.png" alt="">
+                    <text>Doces</text>
+                </div>
+            </button>
+            
+            <button id="show-outros">
+                <div class="img-text-container">
+                    <img src="images/outros.png" alt="">
+                    <text>Outros</text>
+                </div>
+            </button>
+            
+            <button id="show-bolos">
+                <div class="img-text-container">
+                    <img src="images/bolos.png" alt="">
+                    <text>Bolos</text>
+                </div>
+            </button>
+            
+            <button id="show-buffet">
+                <div class="img-text-container">
+                    <img src="images/buffet.png" alt="">
+                    <text>Buffet</text>
+                </div>
+            </button>
+        </div>        
     </div>
 
     <div class="content" style="display: flex; flex-direction: row; overflow: hidden; flex-wrap: nowrap;">
         <div class="cardapio">
             <div id="salgados" class="container-categoria">
                 <div id="salgados-assados">
-                    <text>Salgados Assados: </text>
+                    <div class="img-text-container">
+                        <img src="images/salgado.png" alt="">
+                        <text>Salgados Assados: </text>
+                    </div>
                     <div id="salgados-assados-container" class="product-container"></div>
                 </div>
                 <div id="salgados-tradicionais">
-                    <text>Salgados Tradicionais: </text>
+                    <div class="img-text-container">
+                        <img src="images/salgado.png" alt="">
+                        <text>Salgados Tradicionais: </text>
+                    </div>
                     <div id="salgados-tradicionais-container" class="product-container"></div>
                 </div>
                 <div id="salgados-especiais">
-                    <text>Salgados Especiais: </text>
+                    <div class="img-text-container">
+                        <img src="images/salgado.png" alt="">
+                        <text>Salgados Especiais: </text>
+                    </div>
                     <div id="salgados-especiais-container" class="product-container"></div>
                 </div>
             </div>
 
             <div id="doces" class="container-categoria" style="display: none;">
                 <div id="doces-tradicionais">
-                    <text>Doces Tradicionais: </text>
+                    <div class="img-text-container">
+                        <img src="images/doce.png" alt="">
+                        <text>Doces Tradicionais: </text>
+                    </div>
                     <div id="doces-tradicionais-container" class="product-container"></div>
                 </div>
                 <div id="doces-especiais">
-                    <text>Doces Especiais: </text>
+                    <div class="img-text-container">
+                        <img src="images/doce.png" alt="">
+                        <text>Doces Especiais: </text>
+                    </div>
                     <div id="doces-especiais-container" class="product-container"></div>
                 </div>
             </div>
 
             <div id="outros" class="container-categoria" style="display: none;">
                 <div id="tortas-salgadas">
-                    <text>Tortas Salgadas: </text>
+                    <div class="img-text-container">
+                        <img src="images/outros.png" alt="">
+                        <text>Tortas Salgadas: </text>
+                    </div>
                     <div id="tortas-salgadas-container" class="product-container"></div>
                 </div>
                 <div id="mini-delicias">
-                    <text>Mini Delícias: </text>
+                    <div class="img-text-container">
+                        <img src="images/outros.png" alt="">
+                        <text>Mini Delícias: </text>
+                    </div>
                     <div id="mini-delicias-container" class="product-container"></div>
                 </div>
             </div>
         </div>
-        <div class="carrinho">
+        <div class="carrinho" style="display: none;">
             
         </div>
     </div>
