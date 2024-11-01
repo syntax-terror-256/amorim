@@ -87,7 +87,7 @@ cartButton.addEventListener('click', () => {
   // alternar carrinho no celular
   else {
     if (cartElement.style.display === 'none') {
-      cartElement.style.display = 'block'
+      cartElement.style.display = 'flex'
       cardapioElement.style.display = 'none'
       cartElement.style.width = '100%'
       cardapioElement.style.width = '100%'

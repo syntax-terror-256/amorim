@@ -1,4 +1,88 @@
+.carrinho {
+    display: flex;
+    /* flex: 0 0 auto; */
+    flex-direction: column;
+    padding: 20px;
+    padding-bottom: 80px;
+    max-height: 100%;
+    background-color: #ececec;
+    overflow-y: auto;
+}
+
+.cart-item {
+    padding: 8px;
+    margin: 8px;
+    display: flex;
+    flex-direction: row;
+    outline: auto;
+    outline-color: darkgrey;
+    align-items: center;
+}
+
+.cart-item-body {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+
+.cart-item h2 {
+    font-size: var(--big-font-size);
+    margin: 2% 0;
+    color: dimgrey; /* texto em laranja escuro */
+    white-space: normal; 
+    word-wrap: break-word; 
+
+    padding-left: 12px;
+    padding-bottom: 12px;
+}
+
+.cart-item .quantity-control {
+    align-items: end;
+    justify-content: end;
+}
+
 .cart-item img {
     width: min-content;
-    height: 60px;
+    height: 80px;
+}
+
+.carrinho .empty-cart-warning {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    text-align: center;
+    color: dimgray;
+}
+
+
+
+.fixed-button {
+    position: fixed; /* Fixes the button in place */
+    bottom: 20px;    /* Distance from the bottom */
+    right: 20px;     /* Distance from the right */
+    width: 60px;     /* Set a width */
+    height: 60px;    /* Set a height */
+    background-color: #28a745; /* Light green for "confirm" */
+    color: white;    /* Text color */
+    border: none;    /* No border */
+    border-radius: 50%; /* Makes the button circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    font-size: 24px; /* Font size */
+    display: flex;   /* Use flexbox to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.fixed-button:hover {
+    background-color: #218838; /* Darker shade on hover */
+}
+
+.fixed-button img {
+    width: 80%;
+    height: auto;
 }
