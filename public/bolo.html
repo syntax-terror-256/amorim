@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Bolo</title>
     <link rel="stylesheet" href="css/bolo.css">
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Chosen CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
+    
+    <!-- Chosen JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    
+    <style>
+        .chosen-container {
+            width: 200px !important;
+        }
+        .botao-limpar {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -17,67 +36,40 @@
         </div>
     </div>
 
-    <!-- Nova seção para escolha de quantidade de sabores -->
+    <!-- Seção para escolha de sabor único -->
     <div class="opcoes">
         <div class="seletor-sabor">
-            <label for="quantidadeSabores">Quantos sabores você quer?</label>
-            <select id="quantidadeSabores" onchange="mostrarOpcoes()">
-                <option value="0">Selecione</option>
-                <option value="1">1 Sabor</option>
-                <option value="2">2 Sabores</option>
-                <option value="3">3 Sabores</option>
+            <label for="saborUnico">Escolha um único sabor:</label>
+            <select id="saborUnico" class="chosen-select" data-placeholder="Escolha o sabor..." style="width:200px;">
+                <option value=""></option>
+                <option value="Baba de moça">Baba de moça - R$140,00</option>
+                <option value="Chocolate branco">Chocolate branco - R$140,00</option>
+                <option value="Brigadeiro">Brigadeiro - R$140,00</option>
+                <option value="Doce de leite">Doce de leite - R$140,00</option>
+                <option value="Ninho">Ninho - R$140,00</option>
+                <option value="Castanha do Pará">Castanha do Pará - R$180,00</option>
+                <option value="Ameixa">Ameixa - R$180,00</option>
+                <option value="Damasco">Damasco - R$180,00</option>
+                <option value="Morango">Morango - R$180,00</option>
             </select>
+            <button id="limparSabor" class="botao-limpar">Limpar Seleção</button> <!-- Botão para limpar seleção -->
         </div>
+    </div>
 
-        <!-- Opções para escolha dos sabores (inicialmente ocultas) -->
-        <div id="sabor1" class="sabores oculto">
-            <label for="sabor1">Sabor 1:</label>
-            <select>
-                <option value="">Escolha o sabor</option>
-                <option value="Baba de moça">Baba de moça- R$140,00</option>
-                <option value="Chocolate branco">Chocolate branco- R$140,00</option>
-                <option value="Brigadeiro">Brigadeiro- R$140,00</option>
-                <option value="Doce de leite">Doce de leite- R$140,00</option>
-                <option value="Ninho">Ninho- R$140,00</option>
-                <option value="Doce de leite">Doce de leite- R$180,00</option>
-                <option value="Castanha do Pará">Castanha do Pará- R$180,00</option>
-                <option value="Ameixa">Ameixa- R$180,00</option>
-                <option value="Damasco">Damasco- R$180,00</option>
-                <option value="Morango">Morango- R$180,00</option>
-            </select>
-        </div>
-
-        <div id="sabor2" class="sabores oculto">
-            <label for="sabor2">Sabor 2:</label>
-            <select>
-                <option value="">Escolha o sabor</option>
-                <option value="Baba de moça">Baba de moça- R$140,00</option>
-                <option value="Chocolate branco">Chocolate branco- R$140,00</option>
-                <option value="Brigadeiro">Brigadeiro- R$140,00</option>
-                <option value="Doce de leite">Doce de leite- R$140,00</option>
-                <option value="Ninho">Ninho- R$140,00</option>
-                <option value="Doce de leite">Doce de leite- R$180,00</option>
-                <option value="Castanha do Pará">Castanha do Pará- R$180,00</option>
-                <option value="Ameixa">Ameixa- R$180,00</option>
-                <option value="Damasco">Damasco- R$180,00</option>
-                <option value="Morango">Morango- R$180,00</option>
-            </select>
-        </div>
-
-        <div id="sabor3" class="sabores oculto">
-            <label for="sabor3">Sabor 3:</label>
-            <select>
-                <option value="">Escolha o sabor</option>
-                <option value="Baba de moça">Baba de moça- R$140,00</option>
-                <option value="Chocolate branco">Chocolate branco- R$140,00</option>
-                <option value="Brigadeiro">Brigadeiro- R$140,00</option>
-                <option value="Doce de leite">Doce de leite- R$140,00</option>
-                <option value="Ninho">Ninho- R$140,00</option>
-                <option value="Doce de leite">Doce de leite- R$180,00</option>
-                <option value="Castanha do Pará">Castanha do Pará- R$180,00</option>
-                <option value="Ameixa">Ameixa- R$180,00</option>
-                <option value="Damasco">Damasco- R$180,00</option>
-                <option value="Morango">Morango- R$180,00</option>
+    <!-- Seção para escolha de múltiplos sabores -->
+    <div class="opcoes">
+        <div class="seletor-sabor">
+            <label for="saboresMultiplos">Escolha até 3 sabores:</label>
+            <select id="saboresMultiplos" class="chosen-select" multiple data-placeholder="Selecione as opções" style="width:200px;">
+                <option value="Baba de moça">Baba de moça - R$140,00</option>
+                <option value="Chocolate branco">Chocolate branco - R$140,00</option>
+                <option value="Brigadeiro">Brigadeiro - R$140,00</option>
+                <option value="Doce de leite">Doce de leite - R$140,00</option>
+                <option value="Ninho">Ninho - R$140,00</option>
+                <option value="Castanha do Pará">Castanha do Pará - R$180,00</option>
+                <option value="Ameixa">Ameixa - R$180,00</option>
+                <option value="Damasco">Damasco - R$180,00</option>
+                <option value="Morango">Morango - R$180,00</option>
             </select>
         </div>
     </div>
@@ -96,25 +88,48 @@
     </div>
 
     <script>
-        // Função para exibir as opções de sabores de acordo com a quantidade escolhida
-        function mostrarOpcoes() {
-            var quantidadeSabores = document.getElementById('quantidadeSabores').value;
-            
-            document.getElementById('sabor1').classList.add('oculto');
-            document.getElementById('sabor2').classList.add('oculto');
-            document.getElementById('sabor3').classList.add('oculto');
+        // Inicializa o Chosen para os elementos select
+        $(document).ready(function() {
+            $('.chosen-select').chosen({disable_search_threshold: 10});
 
-            if (quantidadeSabores == 1) {
-                document.getElementById('sabor1').classList.remove('oculto');
-            } else if (quantidadeSabores == 2) {
-                document.getElementById('sabor1').classList.remove('oculto');
-                document.getElementById('sabor2').classList.remove('oculto');
-            } else if (quantidadeSabores == 3) {
-                document.getElementById('sabor1').classList.remove('oculto');
-                document.getElementById('sabor2').classList.remove('oculto');
-                document.getElementById('sabor3').classList.remove('oculto');
-            }
-        }
+            // Limitar a escolha de até 3 sabores
+            $('#saboresMultiplos').change(function() {
+                if ($(this).val().length > 3) {
+                    alert('Você pode escolher no máximo 3 sabores.');
+                    $(this).val($(this).val().slice(0, 3)); // Mantém apenas os 3 primeiros
+                    $(this).trigger('chosen:updated'); // Atualiza a interface do Chosen
+                }
+            });
+
+            // Alternar entre escolha única e múltipla
+            $('#saborUnico').change(function() {
+                if ($(this).val() !== "") {
+                    $('#saboresMultiplos').prop('disabled', true).val('').trigger('chosen:updated');
+                    $(this).find("option:first").text("");
+                } else {
+                    $('#saboresMultiplos').prop('disabled', false).trigger('chosen:updated');
+                    $(this).find("option:first").text("Escolha um único sabor:");
+                }
+            });
+
+            $('#saboresMultiplos').change(function() {
+                if ($(this).val().length > 0) {
+                    $('#saborUnico').prop('disabled', true).val('').trigger('chosen:updated');
+                    $('#saborUnico').find("option:first").text("");
+                } else {
+                    $('#saborUnico').prop('disabled', false).trigger('chosen:updated');
+                    $('#saborUnico').find("option:first").text("Escolha um único sabor:");
+                }
+            });
+
+            // Ação do botão para limpar a seleção de sabor único
+            $('#limparSabor').click(function() {
+                $('#saborUnico').val('').trigger('chosen:updated'); // Limpa a seleção
+                $('#saboresMultiplos').prop('disabled', false).trigger('chosen:updated'); // Habilita o seletor de múltiplos sabores
+                $('#saboresMultiplos').val([]).trigger('chosen:updated'); // Limpa a seleção de múltiplos sabores
+                $('#saboresMultiplos').find("option:first").text("Escolha os sabores:"); // Restaura a opção padrão
+            });
+        });
 
         // Controle de peso do bolo
         var pesoAtual = 0.5;
@@ -131,6 +146,5 @@
             }
         });
     </script>
-        <script src="js/bolo.js"></script>
 </body>
 </html>
