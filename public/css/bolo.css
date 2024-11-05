@@ -1,4 +1,4 @@
-/* Estilos gerais */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #FAA52E80;
@@ -6,13 +6,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Container principal */
 .container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 60%;
@@ -22,9 +24,9 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    transition: all 0.3s ease;
 }
 
-/* Estilo da informação do bolo */
 .info {
     flex: 1;
     padding-right: 20px;
@@ -40,7 +42,6 @@ body {
     line-height: 1.5;
 }
 
-/* Estilo da imagem */
 .imagem {
     flex: 1;
     text-align: center;
@@ -52,12 +53,12 @@ body {
     border-radius: 8px;
 }
 
-/* Estilo das opções */
 .opcoes {
     width: 80%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .seletor-sabor,
@@ -65,14 +66,6 @@ body {
     flex: 1;
     text-align: center;
     margin: 0 10px;
-}
-
-/* Estilo das opções de sabores */
-.sabores {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
 }
 
 label {
@@ -87,22 +80,21 @@ select {
     border-radius: 4px;
 }
 
-/* Oculto - para esconder as opções até que sejam necessárias */
 .oculto {
     display: none;
 }
 
-/* Estilo do contador */
 .contador {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    gap: 10px; /* Espaçamento entre os elementos */
+    gap: 10px;
+    flex-direction: row; /* Mantém a disposição horizontal sempre */
 }
 
 button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     background-color: #f79d1f;
@@ -124,7 +116,6 @@ input[type="text"] {
     border-radius: 4px;
 }
 
-/* Estilo específico para o botão "Adicionar" */
 .adicionar {
     background-color: #ee8e3f;
 }
@@ -133,53 +124,166 @@ input[type="text"] {
     background-color: #e07b2f;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
+/* Media Queries */
+
+/* Dispositivos grandes (PC) - Largura mínima de 1024px */
+@media (min-width: 1024px) {
+    .container {
+        width: 60%;
+    }
+
+    .info h1 {
+        font-size: 24px;
+    }
+
+    .info p {
+        font-size: 16px;
+    }
+
+    .opcoes {
+        width: 80%;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    input[type="text"] {
+        width: 50px;
+    }
+}
+
+/* Tablets (Largura entre 768px e 1024px) */
+@media (max-width: 1024px) {
     .container {
         flex-direction: column;
-        width: 90%;
+        width: 80%;
     }
 
     .opcoes {
         flex-direction: column;
         width: 100%;
+        margin-top: 20px;
+        gap: 10px;
     }
 
     .seletor-sabor,
     .seletor-peso {
-        margin-bottom: 20px;
+        margin: 0 0 10px 0;
+        width: 100%;
     }
 
+    /* Mantendo botões de incremento e decremento lado a lado */
     .contador {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
     }
 }
-.seletor-sabor {
-    flex: none; /* Se estiver usando flexbox, isso remove o comportamento automático de expandir */
-    width: 50%; /* ou outro valor conforme desejado */
-    max-width: 300px; /* Limita a largura máxima */
-    margin: 0 auto; /* Centraliza o contêiner */
-}
-/* O contêiner será exibido dinamicamente, mas mantendo a formatação */
-.seletor-sabor {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+/* Dispositivos móveis (Largura entre 480px e 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .info h1 {
+        font-size: 20px;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .opcoes {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .seletor-sabor,
+    .seletor-peso {
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    /* Mantendo botões de incremento e decremento lado a lado */
+    .contador {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    input[type="text"] {
+        width: 40px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
 }
 
-/* Estilo dos seletores de sabor */
-select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Teléfonos (Largura menor que 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .info h1 {
+        font-size: 18px;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+
+    .imagem img {
+        max-width: 80%; /* Reduz a imagem em telas muito pequenas */
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    input[type="text"] {
+        width: 30px;
+    }
+
+    .opcoes {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .seletor-sabor,
+    .seletor-peso {
+        padding: 8px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* Mantendo botões de incremento e decremento lado a lado */
+    .contador {
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+    }
 }
+
